@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — 아이로그 대시보드</title>
+<meta name="robots" content="noindex, nofollow">
+<script src="../assets/js/config.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<link rel="stylesheet" href="../assets/css/pages/admin.css">
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="loginWrap">
+  <div class="login-box">
+    <div class="ic">🍼</div>
+    <h1>아이로그 Admin</h1>
+    <p>관리자 비밀번호를 입력하세요</p>
+    <input type="password" id="pwInput" placeholder="비밀번호" onkeydown="if(event.key==='Enter')tryLogin()">
+    <button onclick="tryLogin()">로그인</button>
+    <div class="err" id="errMsg">비밀번호가 틀렸어요.</div>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app">
+  <nav class="topnav">
+    <span class="logo">🍼 Admin</span>
+    <button class="nav-btn on" onclick="showPanel('overview',this)">📊 개요</button>
+    <button class="nav-btn" onclick="showPanel('traffic',this)">🌐 트래픽</button>
+    <button class="nav-btn" onclick="showPanel('content',this)">📄 콘텐츠</button>
+    <button class="nav-btn" onclick="showPanel('tools',this)">🔧 툴</button>
+    <button class="nav-btn" onclick="showPanel('revenue',this)">💰 수익</button>
+    <button class="nav-btn" onclick="showPanel('raw',this)">📋 원본</button>
+    <button class="nav-btn" onclick="showPanel('setup',this)">⚙️ 설정</button>
+    <button class="logout" onclick="logout()">로그아웃</button>
+  </nav>
+
+  <div class="wrap">
+
+    <!-- ══════════ 개요 ══════════ -->
+    <div class="panel on" id="panel-overview">
+      <div class="dbar">
+        <button class="dbar-btn on" onclick="setDays(7,this)">7일</button>
+        <button class="dbar-btn" onclick="setDays(28,this)">28일</button>
+        <button class="dbar-btn" onclick="setDays(90,this)">90일</button>
+        <button class="reload-btn" id="reloadBtn" onclick="loadData()">🔄 새로고침</button>
+      </div>
+
+      <div class="ai-box">
+        <div class="ai-hd"><span class="ic">🤖</span><span>AI 인사이트 (Claude)</span></div>
+        <div class="ai-body" id="aiText">데이터 로드 후 AI 분석 버튼을 눌러주세요.</div>
+        <button class="ai-btn" id="aiBtn" onclick="runAI()" disabled>✨ 분석 요청</button>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-l">방문 세션</div><div class="kpi-v" id="kv-ss">—</div><div class="kpi-s" id="ks-ss">기간 합계</div></div>
+        <div class="kpi"><div class="kpi-l">페이지뷰</div><div class="kpi-v" id="kv-pv">—</div><div class="kpi-s" id="ks-pv">기간 합계</div></div>
+        <div class="kpi"><div class="kpi-l">평균 체류시간</div><div class="kpi-v" id="kv-dur">—</div><div class="kpi-s">세션당 평균</div></div>
+        <div class="kpi"><div class="kpi-l">이탈률</div><div class="kpi-v" id="kv-bounce">—</div><div class="kpi-s">1페이지만 보고 나감</div></div>
+        <div class="kpi"><div class="kpi-l">세션당 페이지</div><div class="kpi-v" id="kv-pps">—</div><div class="kpi-s">평균 열람 수</div></div>
+        <div class="kpi"><div class="kpi-l">툴 사용</div><div class="kpi-v" id="kv-tc">—</div><div class="kpi-s">계산 버튼 클릭</div></div>
+        <div class="kpi"><div class="kpi-l">광고 노출/클릭</div><div class="kpi-v" id="kv-ad">—</div><div class="kpi-s" id="ks-ad">CTR —</div></div>
+        <div class="kpi"><div class="kpi-l">어필리에이트 클릭</div><div class="kpi-v" id="kv-af">—</div><div class="kpi-s">쿠팡 등 외부 링크</div></div>
+      </div>
+
+      <div class="cgrid">
+        <div class="cc full"><div class="ct">📈 일별 페이지뷰 & 세션</div><canvas id="cDaily" height="70"></canvas></div>
+      </div>
+
+      <div class="tc">
+        <div class="ct">🚪 진입/이탈 상위 페이지</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;" id="entryExitGrid">
+          <div>
+            <div style="font-size:11px;font-weight:700;color:var(--muted);margin-bottom:6px;">가장 많이 들어온 페이지</div>
+            <table><tbody id="entryBody"></tbody></table>
+          </div>
+          <div>
+            <div style="font-size:11px;font-weight:700;color:var(--muted);margin-bottom:6px;">가장 많이 나간 페이지</div>
+            <table><tbody id="exitBody"></tbody></table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════ 트래픽 ══════════ -->
+    <div class="panel" id="panel-traffic">
+      <div class="cgrid">
+        <div class="cc"><div class="ct">📱 디바이스</div><canvas id="cDevice" height="200"></canvas></div>
+        <div class="cc"><div class="ct">💻 운영체제</div><canvas id="cOS" height="200"></canvas></div>
+        <div class="cc"><div class="ct">🧭 브라우저</div><canvas id="cBrowser" height="200"></canvas></div>
+        <div class="cc"><div class="ct">🔗 유입 경로 유형</div><canvas id="cRefType" height="200"></canvas></div>
+      </div>
+      <div class="tc">
+        <div class="ct">🌍 접속 국가 TOP 10</div>
+        <table><thead><tr><th>#</th><th>국가</th><th>세션</th><th>비율</th></tr></thead><tbody id="countryBody"></tbody></table>
+      </div>
+      <div class="tc">
+        <div class="ct">🔎 유입 출처 (검색/소셜/외부 링크) TOP 10</div>
+        <table><thead><tr><th>#</th><th>출처 도메인</th><th>세션</th></tr></thead><tbody id="refSourceBody"></tbody></table>
+      </div>
+    </div>
+
+    <!-- ══════════ 콘텐츠 ══════════ -->
+    <div class="panel" id="panel-content">
+      <div class="tc">
+        <div class="ct">📄 콘텐츠 성과 (계산기 · 꿀팁 게시글 · 액티비티 통합)</div>
+        <table>
+          <thead><tr><th>#</th><th>콘텐츠</th><th>조회수</th><th>순방문자</th><th>평균 체류</th><th>평균 스크롤</th><th>이탈률</th></tr></thead>
+          <tbody id="contentBody"></tbody>
+        </table>
+      </div>
+      <div class="tc">
+        <div class="ct">🔍 사이트 내 검색어 TOP 20</div>
+        <table><thead><tr><th>#</th><th>검색어</th><th>횟수</th></tr></thead><tbody id="searchBody"></tbody></table>
+      </div>
+    </div>
+
+    <!-- ══════════ 툴 ══════════ -->
+    <div class="panel" id="panel-tools">
+      <div class="cgrid">
+        <div class="cc"><div class="ct">🔧 툴별 사용 횟수 (TOP 7)</div><canvas id="cToolBar" height="220"></canvas></div>
+        <div class="cc"><div class="ct">🥧 사용 비중 (TOP 5)</div><canvas id="cTools" height="220"></canvas></div>
+      </div>
+      <div class="tc">
+        <div class="ct">📋 전체 툴 사용 현황</div>
+        <table><thead><tr><th>#</th><th>툴</th><th>누적 사용</th><th>오늘 사용</th><th>최근 사용</th></tr></thead><tbody id="toolBody"></tbody></table>
+      </div>
+    </div>
+
+    <!-- ══════════ 수익 ══════════ -->
+    <div class="panel" id="panel-revenue">
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-l">광고 노출</div><div class="kpi-v" id="rv-ad">—</div></div>
+        <div class="kpi"><div class="kpi-l">광고 클릭</div><div class="kpi-v" id="rv-adclick">—</div></div>
+        <div class="kpi"><div class="kpi-l">광고 CTR</div><div class="kpi-v" id="rv-ctr">—</div></div>
+        <div class="kpi"><div class="kpi-l">어필리에이트 클릭</div><div class="kpi-v" id="rv-af">—</div></div>
+      </div>
+      <div class="notice">💡 아래 원화(₩) 추정치는 실제 정산액이 아니라, 페이지뷰·클릭수 기반의 대략적인 참고용 계산입니다. 정확한 수익은 애드센스/쿠팡파트너스 대시보드에서 확인하세요.</div>
+      <div class="cgrid">
+        <div class="cc full"><div class="ct">💰 일별 AdSense 노출 추정 원화</div><canvas id="cRevenue" height="80"></canvas></div>
+      </div>
+      <div class="tc">
+        <div class="ct">📍 광고 위치(슬롯)별 성과</div>
+        <table><thead><tr><th>슬롯</th><th>노출</th><th>클릭</th><th>CTR</th></tr></thead><tbody id="adSlotBody"></tbody></table>
+      </div>
+      <div class="tc">
+        <div class="ct">🛒 어필리에이트 링크 도메인별 클릭</div>
+        <table><thead><tr><th>#</th><th>도메인</th><th>클릭</th><th>추정 수익(₩)</th></tr></thead><tbody id="affBody"></tbody></table>
+      </div>
+    </div>
+
+    <!-- ══════════ 원본 ══════════ -->
+    <div class="panel" id="panel-raw">
+      <div class="dbar">
+        <select id="rawSheetSel" onchange="loadRaw()" style="padding:6px 12px;border-radius:8px;border:1.5px solid var(--g200);font-family:inherit;font-size:12px;">
+          <option value="sessions">sessions (세션)</option>
+          <option value="pageviews" selected>pageviews (페이지뷰)</option>
+          <option value="events">events (이벤트)</option>
+        </select>
+        <button class="reload-btn" onclick="loadRaw()">🔄 새로고침</button>
+      </div>
+      <div class="tc" id="rawTable"><div class="loading">시트를 선택하세요</div></div>
+    </div>
+
+    <!-- ══════════ 설정 ══════════ -->
+    <div class="panel" id="panel-setup">
+      <div class="tc" style="margin-bottom:1.5rem;">
+        <div class="ct">✅ 연결 상태</div>
+        <div id="cfgStatus" style="font-size:13px;line-height:2;"></div>
+      </div>
+
+      <div class="setup-item">
+        <div class="sn">1</div>
+        <div class="sc">
+          <h4>Apps Script 웹앱 URL 연결</h4>
+          <p>apps-script/tracker.gs를 배포한 뒤 나온 웹앱 URL을 입력하세요. config.js의 TRACKER_URL과 동일한 값이어야 합니다.</p>
+          <input type="text" id="trackerUrlInput" placeholder="https://script.google.com/macros/s/XXXX/exec"
+            style="width:100%;padding:9px 12px;border:1.5px solid var(--g200);border-radius:6px;font-size:12px;margin-top:8px;font-family:inherit;">
+          <button onclick="saveTrackerUrl()" style="margin-top:8px;padding:8px 16px;background:var(--p);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;">저장 &amp; 연결 테스트</button>
+        </div>
+      </div>
+
+      <div class="setup-item">
+        <div class="sn">2</div>
+        <div class="sc">
+          <h4>시트 구조 (v2)</h4>
+          <p>이 버전은 3개의 원본 시트를 사용하고, 나머지 모든 통계는 대시보드 로드 시 그때그때 집계합니다.</p>
+          <pre>sessions   — 세션 단위 (유입경로/기기/국가/체류시간)
+pageviews  — 페이지·게시글·액티비티 열람 단위 (경로/체류시간/스크롤/이탈유형)
+events     — 광고 노출·클릭, 어필리에이트 클릭, 툴 사용, 검색, 에러 등</pre>
+        </div>
+      </div>
+
+      <div class="setup-item">
+        <div class="sn">3</div>
+        <div class="sc">
+          <h4>샘플 데이터로 미리보기</h4>
+          <p>Apps Script 편집기에서 <code>insertSampleData</code> 함수를 선택 후 ▶ 실행하면 데모용 데이터가 3개 시트에 채워집니다. 실제 방문자 데이터가 쌓이기 전에 대시보드 화면을 미리 확인할 때 유용해요.</p>
+        </div>
+      </div>
+
+      <div class="setup-item">
+        <div class="sn">4</div>
+        <div class="sc">
+          <h4>코드를 고치면 반드시 "새 배포"</h4>
+          <p>tracker.gs 코드를 수정한 뒤에는 배포 → 배포 관리 → 편집(연필) → 버전: 새 버전 → 배포 순으로 다시 배포해야 실제 웹앱에 반영됩니다. URL은 보통 그대로 유지돼요.</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- wrap -->
+</div><!-- app -->
+
+<script src="../assets/js/pages/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://noriya.kr/tools/milestone-checker.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://noriya.kr/tools/milestone-checker.html">
+<meta property="og:site_name" content="아이로그" data-i18n-attr="content:common.ailog">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://noriya.kr/assets/img/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="발달 마일스톤 체크리스트 — 월령별 발달 확인 | 아이로그" data-i18n-attr="content:milestone-checker.developmental_milestone_checklist_chec">
+<meta name="twitter:description" content="아이 월령을 선택하면 운동·언어·사회성·인지 발달 항목을 체크할 수 있어요." data-i18n-attr="content:milestone-checker.choose_child_s_age_check">
+<link rel="preconnect" href="https://script.google.com">
+<link rel="preconnect" href="https://pagead2.googlesyndication.com">
+<title data-i18n="milestone-checker.developmental_milestone_checklist_chec">발달 마일스톤 체크리스트 — 월령별 발달 확인 | 아이로그</title>
+<meta name="description" content="아이 월령을 선택하면 운동·언어·사회성·인지 발달 항목을 체크할 수 있어요." data-i18n-attr="content:milestone-checker.choose_child_s_age_check">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script src="../assets/i18n/i18n.js" data-ns="milestone-checker"></script>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/core/analytics.js"></script>
+<script src="../assets/js/data/tool-catalog.js" defer></script>
+<script src="../assets/js/components/partials.js" defer></script>
+<script src="../assets/js/components/nav.js" defer></script>
+<script src="../assets/js/data/baby-data.js" defer></script>
+<script src="../assets/js/features/baby.js" defer></script>
+<link rel="stylesheet" href="../assets/css/pages/tools/milestone-checker.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://noriya.kr/index.html"}, {"@type": "ListItem", "position": 2, "name": "성장 · 발달", "item": "https://noriya.kr/index.html#cat-성장발달"}, {"@type": "ListItem", "position": 3, "name": "발달 마일스톤 체크리스트", "item": "https://noriya.kr/tools/milestone-checker.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "발달 마일스톤 체크리스트 — 월령별 발달 확인 | 아이로그", "description": "아이 월령을 선택하면 운동·언어·사회성·인지 발달 항목을 체크할 수 있어요.", "url": "https://noriya.kr/tools/milestone-checker.html", "applicationCategory": "LifestyleApplication", "operatingSystem": "Web", "inLanguage": "ko", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"}}</script>
+</head>
+<body data-root-prefix="../">
+<div id="siteHeader"></div>
+<nav class="breadcrumb" aria-label="breadcrumb">
+  <a href="../index.html" data-i18n="common.home_2">홈</a>
+  <span class="bc-sep">›</span>
+  <a href="../index.html#cat-성장발달" data-i18n="common.growth_development">성장 · 발달</a>
+  <span class="bc-sep">›</span>
+  <span class="bc-current" aria-current="page" data-i18n="common.developmental_milestone_checklist">발달 마일스톤 체크리스트</span>
+</nav>
+<div class="tool-hero">
+  <div class="cat-tag" data-i18n="common.growth_development">성장 · 발달</div>
+  <h1 data-i18n="common.developmental_milestone_checklist">발달 마일스톤 체크리스트</h1>
+  <p data-i18n-html="milestone-checker.choose_age_tick_developmental_items">월령을 선택하고 해당되는 발달 항목에 체크해보세요.<br>운동·언어·사회성·인지 영역별로 확인할 수 있어요.</p>
+</div>
+<main>
+<!-- 상단 반응형 배너 광고 -->
+<div class="ad-slot ad-top">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+       data-ad-slot="1111111111"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>if(typeof CONFIG!=="undefined"){var _ins=document.currentScript.previousElementSibling;_ins.setAttribute("data-ad-client",CONFIG.ADSENSE_CLIENT);_ins.setAttribute("data-ad-slot",CONFIG.AD_SLOTS.TOP_BANNER);}</script>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+  <div class="card-raised card">
+    <span class="label" data-i18n="common.child_s_age">아이 월령</span>
+    <div class="btn-group" id="monthBtns"></div>
+  </div>
+
+  <div id="results" class="hidden section-gap">
+    <div class="card">
+      <div class="progress-bar-outer"><div class="progress-bar-inner" id="progressBar" style="width:0%"></div></div>
+      <div class="progress-text" id="progressText" data-i18n="milestone-checker.0_0_items_checked">0 / 0 항목 체크됨</div>
+      <div id="milestoneContent" style="margin-top:1rem;"></div>
+    </div>
+    <div class="concern-box" id="concernBox" data-i18n-html="milestone-checker.this_may_need_closer_look">
+      <strong>⚠️ 확인이 필요할 수 있어요:</strong> 체크된 항목이 50% 미만이에요. 발달 이정표는 개인차가 크지만, 걱정이 된다면 소아과 또는 발달 전문의에게 상담을 받아보세요. 조기 발견과 개입이 도움이 될 수 있습니다.
+    </div>
+    <div class="warn-box section-gap" data-i18n="milestone-checker.this_checklist_reference_every_child">
+      💡 체크리스트는 참고용이에요. 아이마다 발달 속도가 다르며 모든 항목을 정확히 해당 월령에 달성하지 않아도 괜찮아요.
+    </div>
+  </div>
+
+  <!-- 결과 영역 내 광고 -->
+<div class="ad-slot ad-result">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+       data-ad-slot="4444444444"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>if(typeof CONFIG!=="undefined"){var _ins=document.currentScript.previousElementSibling;_ins.setAttribute("data-ad-client",CONFIG.ADSENSE_CLIENT);_ins.setAttribute("data-ad-slot",CONFIG.AD_SLOTS.IN_RESULT);}</script>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+<div class="disclaimer section-gap" data-i18n="milestone-checker.this_checklist_general_guide_based">
+    이 체크리스트는 미국 CDC, 대한소아과학회 발달 기준을 참고한 일반적인 가이드입니다. 의료적 진단을 대체하지 않습니다.
+  </div>
+<!-- 푸터 위 광고 배너 -->
+<div class="ad-slot ad-footer">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+       data-ad-slot="5555555555"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>if(typeof CONFIG!=="undefined"){var _ins=document.currentScript.previousElementSibling;_ins.setAttribute("data-ad-client",CONFIG.ADSENSE_CLIENT);_ins.setAttribute("data-ad-slot",CONFIG.AD_SLOTS.FOOTER);}</script>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+</main>
+<div id="siteFooter" data-footer="tool"></div>
+<script src="../assets/js/pages/tools/milestone-checker.js"></script>
+</body></html>

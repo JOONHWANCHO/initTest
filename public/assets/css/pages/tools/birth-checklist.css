@@ -1,0 +1,15 @@
+/* 페이지 전용 스타일 — tools/birth-checklist.html (공통 토큰/컴포넌트는 assets/css/style.css) */
+.check-category{margin-bottom:1.5rem;}
+.check-category h3{font-size:14px;font-weight:800;color:var(--text);margin-bottom:.5rem;display:flex;align-items:center;gap:6px;}
+.check-items{display:grid;grid-template-columns:1fr 1fr;gap:4px;}
+.check-item{display:flex;align-items:center;gap:8px;padding:7px 8px;border-radius:var(--radius-sm);cursor:pointer;transition:.1s;font-size:13px;}
+.check-item:hover{background:var(--gray-50);}
+.check-item input{width:16px;height:16px;accent-color:var(--primary);flex-shrink:0;cursor:pointer;}
+.check-item label{cursor:pointer;color:var(--text);line-height:1.4;}
+.check-item.done label{text-decoration:line-through;color:var(--text-muted);}
+.progress-wrap{background:var(--gray-100);border-radius:99px;height:10px;margin:.75rem 0 .25rem;}
+.progress-fill{height:100%;border-radius:99px;background:var(--primary);transition:width .4s;}
+.progress-text{font-size:12px;color:var(--text-muted);text-align:right;}
+.reset-btn{background:none;border:none;font-size:12px;color:var(--gray-400);cursor:pointer;font-family:inherit;padding:4px 8px;border-radius:4px;}
+.reset-btn:hover{color:var(--red);}
+@media(max-width:400px){.check-items{grid-template-columns:1fr;}}

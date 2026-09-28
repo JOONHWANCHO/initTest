@@ -1,0 +1,9 @@
+/* 페이지 전용 스타일 — tools/tooth-checker.html (공통 토큰/컴포넌트는 assets/css/style.css) */
+.tooth-map{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;max-width:320px;margin:1rem auto;}
+.tooth-box{aspect-ratio:1;border-radius:var(--radius-sm);display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:1.2rem;border:1.5px solid var(--gray-100);background:var(--surface);transition:.3s;}
+.tooth-box.erupted{background:var(--primary-light);border-color:var(--primary);}
+.tooth-box.current{background:var(--amber-light);border-color:var(--amber);animation:pulse .8s ease-in-out infinite alternate;}
+.tooth-box .tn{font-size:9px;color:var(--text-muted);margin-top:2px;}
+@keyframes pulse{from{transform:scale(1);}to{transform:scale(1.05);}}
+.legend-row{display:flex;gap:12px;justify-content:center;margin:.75rem 0;font-size:12px;color:var(--text-muted);}
+.legend-dot{width:12px;height:12px;border-radius:3px;flex-shrink:0;}

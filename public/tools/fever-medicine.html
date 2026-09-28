@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://noriya.kr/tools/fever-medicine.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://noriya.kr/tools/fever-medicine.html">
+<meta property="og:site_name" content="아이로그" data-i18n-attr="content:common.ailog">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://noriya.kr/assets/img/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="소아 해열제 용량 계산기 — 타이레놀·부루펜 ml 계산 | 아이로그" data-i18n-attr="content:fever-medicine.pediatric_fever_medicine_dose_calculat">
+<meta name="twitter:description" content="아이 체중을 입력하면 타이레놀(아세트아미노펜)과 부루펜(이부프로펜) 정확한 ml 용량을 즉시 계산해드려요." data-i18n-attr="content:fever-medicine.enter_child_s_weight_instantly">
+<link rel="preconnect" href="https://script.google.com">
+<link rel="preconnect" href="https://pagead2.googlesyndication.com">
+<title data-i18n="fever-medicine.pediatric_fever_medicine_dose_calculat">소아 해열제 용량 계산기 — 타이레놀·부루펜 ml 계산 | 아이로그</title>
+<meta name="description" content="아이 체중을 입력하면 타이레놀(아세트아미노펜)과 부루펜(이부프로펜) 정확한 ml 용량을 즉시 계산해드려요." data-i18n-attr="content:fever-medicine.enter_child_s_weight_instantly">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script src="../assets/i18n/i18n.js" data-ns="fever-medicine"></script>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/core/analytics.js"></script>
+<script src="../assets/js/data/tool-catalog.js" defer></script>
+<script src="../assets/js/components/partials.js" defer></script>
+<script src="../assets/js/components/nav.js" defer></script>
+<script src="../assets/js/data/baby-data.js" defer></script>
+<script src="../assets/js/features/baby.js" defer></script>
+<link rel="stylesheet" href="../assets/css/pages/tools/fever-medicine.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://noriya.kr/index.html"}, {"@type": "ListItem", "position": 2, "name": "건강 · 응급", "item": "https://noriya.kr/index.html#cat-건강응급"}, {"@type": "ListItem", "position": 3, "name": "소아 해열제 용량 계산기", "item": "https://noriya.kr/tools/fever-medicine.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "소아 해열제 용량 계산기 — 타이레놀·부루펜 ml 계산 | 아이로그", "description": "아이 체중을 입력하면 타이레놀(아세트아미노펜)과 부루펜(이부프로펜) 정확한 ml 용량을 즉시 계산해드려요.", "url": "https://noriya.kr/tools/fever-medicine.html", "applicationCategory": "LifestyleApplication", "operatingSystem": "Web", "inLanguage": "ko", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"}}</script>
+</head>
+<body data-root-prefix="../">
+<div id="siteHeader"></div>
+<nav class="breadcrumb" aria-label="breadcrumb">
+  <a href="../index.html" data-i18n="common.home_2">홈</a>
+  <span class="bc-sep">›</span>
+  <a href="../index.html#cat-건강응급" data-i18n="common.health_emergency">건강 · 응급</a>
+  <span class="bc-sep">›</span>
+  <span class="bc-current" aria-current="page" data-i18n="common.pediatric_fever_medicine_dose_calculat">소아 해열제 용량 계산기</span>
+</nav>
+<div class="tool-hero">
+  <div class="cat-tag" data-i18n="common.health_emergency">건강 · 응급</div>
+  <h1 data-i18n="common.pediatric_fever_medicine_dose_calculat">소아 해열제 용량 계산기</h1>
+  <p data-i18n-html="fever-medicine.enter_child_s_weight_instantly_2">체중을 입력하면 타이레놀·부루펜 정확한 ml 용량을<br>즉시 계산해드려요. 새벽에 열날 때 바로 확인하세요.</p>
+</div>
+<main>
+<!-- 상단 반응형 배너 광고 -->
+<div class="ad-slot ad-top">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+       data-ad-slot="1111111111"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>if(typeof CONFIG!=="undefined"){var _ins=document.currentScript.previousElementSibling;_ins.setAttribute("data-ad-client",CONFIG.ADSENSE_CLIENT);_ins.setAttribute("data-ad-slot",CONFIG.AD_SLOTS.TOP_BANNER);}</script>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+  <div class="card-raised card">
+    <div class="input-row">
+      <div class="input-group">
+        <label data-i18n="fever-medicine.child_s_weight_kg">아이 체중 (kg)</label>
+        <input type="number" id="weight" placeholder="예: 8.5" step="0.1" min="3" max="40" data-i18n-attr="placeholder:fever-medicine.e_g_8_5">
+      </div>
+      <div class="input-group">
+        <label data-i18n="common.age_months">월령 (개월)</label>
+        <input type="number" id="ageMonth" placeholder="예: 7" min="0" max="120" data-i18n-attr="placeholder:fever-medicine.e_g_7">
+      </div>
+    </div>
+    <button class="calc-btn" onclick="calculate()" data-i18n="fever-medicine.calculate_dose">🌡️ 용량 계산하기</button>
+  </div>
+
+  <div id="results" class="hidden section-gap">
+    <div class="med-card tylenol">
+      <div class="med-name" data-i18n="fever-medicine.tylenol_acetaminophen">타이레놀 (아세트아미노펜)</div>
+      <div class="med-sub" data-i18n="fever-medicine.based_children_s_160mg_5ml">어린이용 160mg/5ml 기준 · 생후 2개월부터 사용 가능</div>
+      <div class="dose-row">
+        <span class="dose-ml" id="tylenolMl">—</span>
+        <span class="dose-unit">ml</span>
+      </div>
+      <div class="dose-range" id="tylenolRange"></div>
+      <span class="interval-badge" data-i18n="fever-medicine.every_4_6_hours_max">4~6시간 간격 · 하루 최대 5회</span>
+      <div class="timer-section">
+        <div class="tl" data-i18n="fever-medicine.dose_timer">투약 타이머</div>
+        <div class="cross-timer">
+          <div class="radial-timer" id="tRing"><div class="rt-inner" id="tRingText" data-i18n="fever-medicine.idle">대기중</div></div>
+          <div class="ct-controls">
+            <button class="ct-btn" onclick="startTimer('T')" data-i18n="fever-medicine.given_now">▶ 지금 먹임</button>
+            <div id="tTimer" class="ct-display"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="med-card brufen">
+      <div class="med-name" data-i18n="fever-medicine.brufen_ibuprofen">부루펜 (이부프로펜)</div>
+      <div class="med-sub" data-i18n="fever-medicine.based_children_s_100mg_5ml">어린이용 100mg/5ml 기준 · 생후 6개월부터 사용 가능</div>
+      <div class="dose-row">
+        <span class="dose-ml" id="brufenMl">—</span>
+        <span class="dose-unit">ml</span>
+      </div>
+      <div class="dose-range" id="brufenRange"></div>
+      <span class="interval-badge" data-i18n="fever-medicine.every_6_8_hours_max">6~8시간 간격 · 하루 최대 4회</span>
+      <div class="timer-section">
+        <div class="tl" data-i18n="fever-medicine.dose_timer">투약 타이머</div>
+        <div class="cross-timer">
+          <div class="radial-timer" id="bRing"><div class="rt-inner" id="bRingText" data-i18n="fever-medicine.idle">대기중</div></div>
+          <div class="ct-controls">
+            <button class="ct-btn" onclick="startTimer('B')" data-i18n="fever-medicine.given_now">▶ 지금 먹임</button>
+            <div id="bTimer" class="ct-display"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="danger-box section-gap" data-i18n-html="fever-medicine.alternating_caution_tylenol_brufen_can">
+      ⛔ <strong>교차 복용 주의:</strong> 타이레놀과 부루펜은 교차 복용 가능하지만 반드시 각 약의 최소 간격을 지켜야 해요. 같은 약을 너무 자주 먹이면 안 됩니다.
+    </div>
+
+    <div class="section-gap card">
+      <h2 class="block-title" data-i18n="fever-medicine.alternating_dose_example">교차 복용 예시</h2>
+      <table class="data-table">
+        <thead><tr><th data-i18n="fever-medicine.time">시각</th><th data-i18n="fever-medicine.medicine">약</th><th data-i18n="common.note">비고</th></tr></thead>
+        <tbody>
+          <tr><td data-i18n="fever-medicine.8_00_am">오전 8:00</td><td data-i18n="fever-medicine.tylenol">타이레놀</td><td data-i18n="fever-medicine.first_dose">첫 투약</td></tr>
+          <tr><td data-i18n="fever-medicine.12_00_pm">오전 12:00</td><td data-i18n="fever-medicine.brufen">부루펜</td><td data-i18n="fever-medicine.4_hours_later_keeping_tylenol">4시간 후 (타이레놀 간격 유지)</td></tr>
+          <tr><td data-i18n="fever-medicine.6_00_pm">오후 6:00</td><td data-i18n="fever-medicine.tylenol">타이레놀</td><td data-i18n="fever-medicine.6_hours_later_keeping_brufen">6시간 후 (부루펜 간격 유지)</td></tr>
+          <tr><td data-i18n="fever-medicine.10_00_pm">오후 10:00</td><td data-i18n="fever-medicine.brufen">부루펜</td><td data-i18n="fever-medicine.4_hours_later">4시간 후</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section-gap card">
+    <h2 class="block-title" data-i18n="fever-medicine.when_give_fever_medicine">해열제 복용 기준</h2>
+    <table class="data-table">
+      <thead><tr><th data-i18n="fever-medicine.temperature">체온</th><th data-i18n="fever-medicine.recommended_action">권장 조치</th></tr></thead>
+      <tbody>
+        <tr><td data-i18n="fever-medicine.below_37_5_c">37.5°C 미만</td><td data-i18n="fever-medicine.normal_no_fever_medicine_needed">정상 — 해열제 불필요</td></tr>
+        <tr><td>37.5~38.0°C</td><td data-i18n="fever-medicine.low_grade_fever_give_plenty">미열 — 충분한 수분 섭취, 관찰</td></tr>
+        <tr><td>38.0~38.5°C</td><td data-i18n="fever-medicine.fever_medicine_ok_if_child">발열 — 아이가 많이 힘들어하면 해열제 가능</td></tr>
+        <tr><td data-i18n="fever-medicine.38_5_c_higher">38.5°C 이상</td><td data-i18n="fever-medicine.fever_medicine_recommended">✅ 해열제 투약 권장</td></tr>
+        <tr><td data-i18n="fever-medicine.39_5_c_higher">39.5°C 이상</td><td data-i18n="fever-medicine.visit_pediatrician_right_away_consider">⚠️ 즉시 소아과 방문 또는 응급실 고려</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="danger-box section-gap" data-i18n-html="fever-medicine.see_doctor_without_fail_if">
+    <strong>⚠️ 반드시 의사 상담이 필요한 경우:</strong><br>
+    생후 3개월 미만 발열 · 38.5도 이상 3일 이상 지속 · 경련 · 의식 저하 · 발진 동반 · 극도의 보챔 · 수분 섭취 거부
+  </div>
+
+  <!-- 결과 영역 내 광고 -->
+<div class="ad-slot ad-result">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+       data-ad-slot="4444444444"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>if(typeof CONFIG!=="undefined"){var _ins=document.currentScript.previousElementSibling;_ins.setAttribute("data-ad-client",CONFIG.ADSENSE_CLIENT);_ins.setAttribute("data-ad-slot",CONFIG.AD_SLOTS.IN_RESULT);}</script>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+<div class="disclaimer section-gap" data-i18n="fever-medicine.this_calculator_general_reference_only">
+    본 계산기는 일반적인 참고용이며, 의약품 사용 전 반드시 약 설명서를 확인하고 소아과 전문의와 상담하세요. 동일 성분 약제를 중복 투여하지 마세요.
+  </div>
+<!-- 푸터 위 광고 배너 -->
+<div class="ad-slot ad-footer">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+       data-ad-slot="5555555555"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>if(typeof CONFIG!=="undefined"){var _ins=document.currentScript.previousElementSibling;_ins.setAttribute("data-ad-client",CONFIG.ADSENSE_CLIENT);_ins.setAttribute("data-ad-slot",CONFIG.AD_SLOTS.FOOTER);}</script>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+</main>
+<div id="siteFooter" data-footer="tool"></div>
+<script src="../assets/js/pages/tools/fever-medicine.js"></script>
+</body></html>

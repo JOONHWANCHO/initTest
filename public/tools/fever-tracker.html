@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://noriya.kr/tools/fever-tracker.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://noriya.kr/tools/fever-tracker.html">
+<meta property="og:site_name" content="아이로그" data-i18n-attr="content:common.ailog">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://noriya.kr/assets/img/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="체온 기록 & 해열제 교차 타이머 | 아이로그" data-i18n-attr="content:fever-tracker.temperature_log_fever_medicine_alterna">
+<meta name="twitter:description" content="아이 체온을 기록하고 타이레놀·부루펜 교차 복용 타이머를 관리하세요." data-i18n-attr="content:fever-tracker.log_child_s_temperature_manage">
+<link rel="preconnect" href="https://script.google.com">
+<link rel="preconnect" href="https://pagead2.googlesyndication.com">
+<title data-i18n="fever-tracker.temperature_log_fever_medicine_alterna">체온 기록 & 해열제 교차 타이머 | 아이로그</title>
+<meta name="description" content="아이 체온을 기록하고 타이레놀·부루펜 교차 복용 타이머를 관리하세요." data-i18n-attr="content:fever-tracker.log_child_s_temperature_manage">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script src="../assets/i18n/i18n.js" data-ns="fever-tracker"></script>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/core/analytics.js"></script>
+<script src="../assets/js/data/tool-catalog.js" defer></script>
+<script src="../assets/js/components/partials.js" defer></script>
+<script src="../assets/js/components/nav.js" defer></script>
+<script src="../assets/js/data/baby-data.js" defer></script>
+<script src="../assets/js/features/baby.js" defer></script>
+<link rel="stylesheet" href="../assets/css/pages/tools/fever-tracker.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://noriya.kr/index.html"}, {"@type": "ListItem", "position": 2, "name": "건강 · 응급", "item": "https://noriya.kr/index.html#cat-건강응급"}, {"@type": "ListItem", "position": 3, "name": "체온 기록 & 해열제 교차 타이머", "item": "https://noriya.kr/tools/fever-tracker.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "체온 기록 & 해열제 교차 타이머 | 아이로그", "description": "아이 체온을 기록하고 타이레놀·부루펜 교차 복용 타이머를 관리하세요.", "url": "https://noriya.kr/tools/fever-tracker.html", "applicationCategory": "LifestyleApplication", "operatingSystem": "Web", "inLanguage": "ko", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"}}</script>
+</head>
+<body data-root-prefix="../">
+<div id="siteHeader"></div>
+<nav class="breadcrumb" aria-label="breadcrumb">
+  <a href="../index.html" data-i18n="common.home_2">홈</a>
+  <span class="bc-sep">›</span>
+  <a href="../index.html#cat-건강응급" data-i18n="common.health_emergency">건강 · 응급</a>
+  <span class="bc-sep">›</span>
+  <span class="bc-current" aria-current="page" data-i18n="common.temperature_log_fever_medicine_alterna">체온 기록 & 해열제 교차 타이머</span>
+</nav>
+<div class="tool-hero">
+  <div class="cat-tag" data-i18n="common.health_emergency">건강 · 응급</div>
+  <h1 data-i18n="fever-tracker.temperature_log_alternating_timer">체온 기록 & 교차 타이머</h1>
+  <p data-i18n-html="fever-tracker.log_temperature_changes_manage_tylenol">체온 변화를 기록하고 타이레놀·부루펜 교차 복용<br>타이머를 한 화면에서 관리하세요.</p>
+</div>
+<main>
+<!-- 상단 반응형 배너 광고 -->
+<div class="ad-slot ad-top">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+       data-ad-slot="1111111111"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>if(typeof CONFIG!=="undefined"){var _ins=document.currentScript.previousElementSibling;_ins.setAttribute("data-ad-client",CONFIG.ADSENSE_CLIENT);_ins.setAttribute("data-ad-slot",CONFIG.AD_SLOTS.TOP_BANNER);}</script>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+  <div class="card-raised card">
+    <span class="label" data-i18n="fever-tracker.temperature_log">체온 기록</span>
+    <div class="temp-input-row">
+      <div class="input-group" style="flex:1">
+        <label data-i18n="fever-tracker.temperature_c">체온 (°C)</label>
+        <input type="number" id="tempInput" placeholder="38.5" step="0.1" min="35" max="42">
+      </div>
+      <div class="input-group" style="flex:1">
+        <label data-i18n="fever-tracker.measurement_method">측정 방법</label>
+        <select id="tempMethod">
+          <option value="직장(가장 정확)" data-i18n="fever-tracker.rectal_most_accurate">직장(가장 정확)</option>
+          <option value="겨드랑이" selected data-i18n="fever-tracker.armpit">겨드랑이</option>
+          <option value="귀(고막)" data-i18n="fever-tracker.ear_eardrum">귀(고막)</option>
+          <option value="이마(적외선)" data-i18n="fever-tracker.forehead_infrared">이마(적외선)</option>
+        </select>
+      </div>
+    </div>
+    <button class="calc-btn" onclick="addTemp()" data-i18n="fever-tracker.log_temperature">📌 체온 기록하기</button>
+  </div>
+
+  <div class="section-gap">
+    <h2 class="block-title" data-i18n="fever-tracker.fever_medicine_alternating_timer">해열제 교차 타이머</h2>
+    <div class="drug-timers">
+      <div class="drug-timer-card ty">
+        <div class="dt-name" data-i18n="fever-tracker.tylenol">🟢 타이레놀</div>
+        <div class="dt-time" id="tCountdown">—</div>
+        <div class="dt-status" id="tStatus" data-i18n="fever-tracker.not_given">미투약</div>
+        <button class="dt-btn" onclick="startDrug('T')" data-i18n="fever-tracker.given_now">지금 먹임</button>
+      </div>
+      <div class="drug-timer-card br">
+        <div class="dt-name" data-i18n="fever-tracker.brufen">🟠 부루펜</div>
+        <div class="dt-time" id="bCountdown">—</div>
+        <div class="dt-status" id="bStatus" data-i18n="fever-tracker.not_given">미투약</div>
+        <button class="dt-btn" onclick="startDrug('B')" data-i18n="fever-tracker.given_now">지금 먹임</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-gap">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem;">
+      <h2 class="block-title" style="margin:0;" data-i18n="fever-tracker.temperature_log_list">체온 기록 목록</h2>
+      <button onclick="clearLogs()" style="font-size:12px;color:var(--red);background:none;border:none;cursor:pointer;font-family:inherit;" data-i18n="common.delete_all">🗑 전체 삭제</button>
+    </div>
+    <div class="card">
+      <canvas id="tempChart" height="100"></canvas>
+      <div id="logList"><p style="text-align:center;color:var(--text-muted);padding:1.5rem;font-size:13px;" data-i18n="common.no_records_yet">아직 기록이 없어요</p></div>
+    </div>
+  </div>
+
+  <div class="warn-box section-gap" data-i18n-html="fever-tracker.correction_by_method_armpit_0">
+    💡 <strong>측정 방법별 보정값:</strong> 겨드랑이 +0.5°C = 실제 체온. 이마(적외선)는 환경 영향을 받아 0.3~0.5°C 낮게 나올 수 있어요.
+  </div>
+
+  <!-- 결과 영역 내 광고 -->
+<div class="ad-slot ad-result">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+       data-ad-slot="4444444444"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>if(typeof CONFIG!=="undefined"){var _ins=document.currentScript.previousElementSibling;_ins.setAttribute("data-ad-client",CONFIG.ADSENSE_CLIENT);_ins.setAttribute("data-ad-slot",CONFIG.AD_SLOTS.IN_RESULT);}</script>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+<div class="disclaimer section-gap" data-i18n="fever-tracker.this_timer_reference_only_before">
+    이 타이머는 참고용이며 의약품 투약 전 반드시 약 설명서와 소아과 지침을 따르세요.
+  </div>
+<!-- 푸터 위 광고 배너 -->
+<div class="ad-slot ad-footer">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+       data-ad-slot="5555555555"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>if(typeof CONFIG!=="undefined"){var _ins=document.currentScript.previousElementSibling;_ins.setAttribute("data-ad-client",CONFIG.ADSENSE_CLIENT);_ins.setAttribute("data-ad-slot",CONFIG.AD_SLOTS.FOOTER);}</script>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+</main>
+<div id="siteFooter" data-footer="tool"></div>
+<script src="../assets/js/pages/tools/fever-tracker.js"></script>
+</body></html>

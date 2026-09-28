@@ -1,0 +1,10 @@
+/* 페이지 전용 스타일 — tools/growth-percentile.html (공통 토큰/컴포넌트는 assets/css/style.css) */
+.percentile-bar-wrap{margin-top:1rem;}
+.pbar-label{font-size:12px;color:var(--text-muted);margin-bottom:4px;display:flex;justify-content:space-between;}
+.pbar-track{height:12px;background:var(--gray-100);border-radius:99px;position:relative;overflow:visible;}
+.pbar-fill{height:100%;border-radius:99px;background:var(--primary);transition:width .6s ease;}
+.pbar-marker{position:absolute;top:-4px;width:20px;height:20px;background:var(--primary-dark);border-radius:50%;transform:translateX(-50%);border:3px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.2);}
+.pbar-zones{display:flex;justify-content:space-between;margin-top:4px;font-size:10px;color:var(--gray-400);}
+.big-percentile{font-size:3rem;font-weight:900;color:var(--primary-dark);line-height:1;}
+.pct-label{font-size:13px;color:var(--text-muted);margin-top:4px;}
+.interp-badge{display:inline-block;padding:4px 12px;border-radius:99px;font-size:12px;font-weight:700;margin-top:.5rem;}

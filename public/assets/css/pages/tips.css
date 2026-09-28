@@ -1,0 +1,96 @@
+/* 페이지 전용 스타일 — tips.html (공통 토큰/컴포넌트는 assets/css/style.css) */
+/* ══════════════════════════════
+   구글 시트 연동 설정
+   1) 구글 시트를 아래 컬럼 구조로 만드세요:
+      A: id | B: category | C: emoji | D: title | E: summary | F: content | G: tags | H: date
+
+   2) Apps Script 웹앱으로 배포:
+      시트 → 확장 프로그램 → Apps Script → 아래 코드 붙여넣기 → 배포 → 웹앱 URL 복사
+      ─────────────────────────────────────
+      function doGet(e) {
+        const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+        const rows = sheet.getDataRange().getValues();
+        const headers = rows[0];
+        const tips = rows.slice(1).map(r => {
+          const obj = {};
+          headers.forEach((h, i) => obj[h] = r[i]);
+          return obj;
+        });
+        return ContentService
+          .createTextOutput(JSON.stringify({ tips }))
+          .setMimeType(ContentService.MimeType.JSON);
+      }
+      ─────────────────────────────────────
+      배포 설정: 액세스 권한 = "모든 사용자"
+
+   3) 아래 SHEET_JSON_URL 에 복사한 URL을 붙여넣으세요.
+══════════════════════════════ */
+
+/* ── LIST PAGE ── */
+.list-hero{background:var(--primary);color:#fff;padding:2rem 1.5rem 2.5rem;text-align:center;}
+.list-hero .eyebrow{font-size:11px;font-weight:700;letter-spacing:.1em;opacity:.6;text-transform:uppercase;margin-bottom:.5rem;}
+.list-hero h1{font-size:clamp(1.4rem,4vw,2rem);font-weight:900;line-height:1.2;margin-bottom:.4rem;}
+.list-hero p{font-size:13px;opacity:.8;max-width:420px;margin:0 auto;}
+
+.list-main{max-width:760px;margin:0 auto;padding:1.5rem 1rem 5rem;}
+
+.cat-filter{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:1.25rem;scrollbar-width:none;}
+.cat-filter::-webkit-scrollbar{display:none;}
+.cf-btn{padding:7px 16px;border-radius:99px;border:1.5px solid var(--gray-200);background:var(--bg);font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;font-family:inherit;color:var(--text-muted);transition:.15s;flex-shrink:0;}
+.cf-btn:hover{border-color:var(--primary);color:var(--primary);}
+.cf-btn.active{background:var(--primary);border-color:var(--primary);color:#fff;}
+
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;}
+.tip-card{background:var(--bg);border:1px solid var(--gray-100);border-radius:var(--radius);overflow:hidden;text-decoration:none;color:var(--text);transition:.18s;display:flex;flex-direction:column;box-shadow:0 1px 6px rgba(0,0,0,.04);cursor:pointer;}
+.tip-card:hover{border-color:var(--primary);box-shadow:0 4px 16px rgba(61,122,94,.12);transform:translateY(-2px);}
+.tip-thumb{height:88px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;flex-shrink:0;}
+.tip-body{padding:.875rem 1rem 1rem;flex:1;display:flex;flex-direction:column;gap:4px;}
+.tip-cat{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;}
+.tip-title{font-size:13px;font-weight:700;color:var(--text);line-height:1.4;}
+.tip-summary{font-size:12px;color:var(--text-muted);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.tip-date{font-size:10px;color:var(--gray-400);margin-top:4px;}
+
+.load-more-btn{display:block;width:100%;padding:13px;margin-top:1.25rem;border:1.5px solid var(--gray-200);border-radius:var(--radius-sm);background:var(--bg);color:var(--text-muted);font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;transition:.15s;}
+.load-more-btn:hover{border-color:var(--primary);color:var(--primary);}
+
+/* ── DETAIL PAGE ── */
+.detail-wrap{max-width:680px;margin:0 auto;padding:1.5rem 1rem 5rem;}
+.detail-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--text-muted);text-decoration:none;margin-bottom:1.25rem;font-weight:600;}
+.detail-back:hover{color:var(--primary);}
+.detail-cat-badge{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 10px;border-radius:99px;margin-bottom:.75rem;}
+.detail-title{font-size:clamp(1.3rem,4vw,1.8rem);font-weight:900;color:var(--text);line-height:1.3;margin-bottom:.5rem;}
+.detail-meta{font-size:12px;color:var(--text-muted);margin-bottom:1.5rem;display:flex;align-items:center;gap:10px;}
+.detail-content{font-size:15px;color:var(--text);line-height:1.85;}
+.detail-content h2{font-size:17px;font-weight:800;color:var(--text);margin:1.75rem 0 .6rem;padding-left:.75rem;border-left:3px solid var(--primary);}
+.detail-content h3{font-size:15px;font-weight:700;color:var(--text);margin:1.25rem 0 .4rem;}
+.detail-content p{margin-bottom:1rem;}
+.detail-content ul,
+.detail-content ol{padding-left:1.4rem;margin-bottom:1rem;}
+.detail-content li{margin-bottom:.4rem;line-height:1.7;}
+.detail-content strong{font-weight:700;color:var(--text);}
+.detail-content blockquote{background:var(--primary-light);border-left:3px solid var(--primary);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:.875rem 1.1rem;margin:1rem 0;font-size:14px;color:var(--primary-dark);}
+.detail-content .tip-box{background:var(--amber-light);border:1px solid var(--amber-mid);border-radius:var(--radius-sm);padding:.875rem 1rem;margin:1rem 0;font-size:13px;color:#7A5710;}
+.detail-content .warn-box{background:var(--red-light);border:1px solid var(--red-mid);border-radius:var(--radius-sm);padding:.875rem 1rem;margin:1rem 0;font-size:13px;color:#7a1010;}
+
+.detail-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:1.75rem;padding-top:1.25rem;border-top:1px solid var(--gray-100);}
+.tag-chip{padding:4px 12px;border-radius:99px;background:var(--gray-50);border:1px solid var(--gray-100);font-size:12px;color:var(--text-muted);}
+
+.related-section{margin-top:2.5rem;}
+.related-section h3{font-size:15px;font-weight:800;color:var(--text);margin-bottom:1rem;}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;}
+
+/* ── SETUP GUIDE ── */
+.setup-card{background:var(--bg);border:1px dashed var(--gray-200);border-radius:var(--radius);padding:2rem 1.5rem;text-align:center;margin:2rem 0;}
+.setup-card h3{font-size:16px;font-weight:800;margin-bottom:.75rem;}
+.setup-steps{text-align:left;max-width:480px;margin:1rem auto 0;}
+.setup-step{display:flex;gap:12px;margin-bottom:.875rem;font-size:13px;}
+.step-num{width:24px;height:24px;border-radius:50%;background:var(--primary);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.step-text{color:var(--text-muted);line-height:1.6;}
+.step-text code{background:var(--gray-50);border:1px solid var(--gray-100);border-radius:4px;padding:1px 5px;font-size:11px;color:var(--text);}
+pre.code-block{background:var(--gray-900);color:#e8f5e9;border-radius:var(--radius-sm);padding:1rem;font-size:11px;overflow-x:auto;text-align:left;margin:1rem 0;line-height:1.7;}
+
+/* ── STATES ── */
+.loading-state{text-align:center;padding:3rem 1rem;color:var(--text-muted);}
+.loading-state .spin{display:inline-block;font-size:2rem;animation:spin 1.2s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.empty-state{text-align:center;padding:2.5rem 1rem;color:var(--text-muted);font-size:14px;}

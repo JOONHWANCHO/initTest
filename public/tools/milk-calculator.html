@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://noriya.kr/tools/milk-calculator.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://noriya.kr/tools/milk-calculator.html">
+<meta property="og:site_name" content="아이로그" data-i18n-attr="content:common.ailog">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://noriya.kr/assets/img/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="분유·수유량 계산기 — 하루 권장 수유량 | 아이로그" data-i18n-attr="content:milk-calculator.formula_feeding_amount_calculator_dail">
+<meta name="twitter:description" content="아이 월령과 체중을 입력하면 하루 권장 수유량과 1회 수유량을 계산해드려요." data-i18n-attr="content:milk-calculator.enter_child_s_age_weight">
+<link rel="preconnect" href="https://script.google.com">
+<link rel="preconnect" href="https://pagead2.googlesyndication.com">
+<title data-i18n="milk-calculator.formula_feeding_amount_calculator_dail">분유·수유량 계산기 — 하루 권장 수유량 | 아이로그</title>
+<meta name="description" content="아이 월령과 체중을 입력하면 하루 권장 수유량과 1회 수유량을 계산해드려요." data-i18n-attr="content:milk-calculator.enter_child_s_age_weight">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script src="../assets/i18n/i18n.js" data-ns="milk-calculator"></script>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/core/analytics.js"></script>
+<script src="../assets/js/data/tool-catalog.js" defer></script>
+<script src="../assets/js/components/partials.js" defer></script>
+<script src="../assets/js/components/nav.js" defer></script>
+<script src="../assets/js/data/baby-data.js" defer></script>
+<script src="../assets/js/features/baby.js" defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://noriya.kr/index.html"}, {"@type": "ListItem", "position": 2, "name": "이유식 · 영양", "item": "https://noriya.kr/index.html#cat-이유식영양"}, {"@type": "ListItem", "position": 3, "name": "분유 · 수유량 계산기", "item": "https://noriya.kr/tools/milk-calculator.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "분유·수유량 계산기 — 하루 권장 수유량 | 아이로그", "description": "아이 월령과 체중을 입력하면 하루 권장 수유량과 1회 수유량을 계산해드려요.", "url": "https://noriya.kr/tools/milk-calculator.html", "applicationCategory": "LifestyleApplication", "operatingSystem": "Web", "inLanguage": "ko", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"}}</script>
+</head>
+<body data-root-prefix="../">
+<div id="siteHeader"></div>
+<nav class="breadcrumb" aria-label="breadcrumb">
+  <a href="../index.html" data-i18n="common.home_2">홈</a>
+  <span class="bc-sep">›</span>
+  <a href="../index.html#cat-이유식영양" data-i18n="common.weaning_nutrition">이유식 · 영양</a>
+  <span class="bc-sep">›</span>
+  <span class="bc-current" aria-current="page" data-i18n="common.formula_feeding_amount_calculator">분유 · 수유량 계산기</span>
+</nav>
+<div class="tool-hero">
+  <div class="cat-tag" data-i18n="common.weaning_nutrition">이유식 · 영양</div>
+  <h1 data-i18n="common.formula_feeding_amount_calculator">분유 · 수유량 계산기</h1>
+  <p data-i18n="milk-calculator.enter_age_weight_see_recommended">월령과 체중을 입력하면 하루 권장 수유량과 1회 적정량을 알려드려요.</p>
+</div>
+<main>
+<!-- 상단 반응형 배너 광고 -->
+<div class="ad-slot ad-top">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+       data-ad-slot="1111111111"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>if(typeof CONFIG!=="undefined"){var _ins=document.currentScript.previousElementSibling;_ins.setAttribute("data-ad-client",CONFIG.ADSENSE_CLIENT);_ins.setAttribute("data-ad-slot",CONFIG.AD_SLOTS.TOP_BANNER);}</script>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+  <div class="card-raised card">
+    <span class="label" data-i18n="milk-calculator.feeding_type">수유 방식</span>
+    <div class="btn-group" style="margin-bottom:1.25rem;" id="feedType">
+      <button class="pill-btn active" onclick="setType(this,'formula')" data-i18n="common.formula">🍼 분유</button>
+      <button class="pill-btn" onclick="setType(this,'breast')" data-i18n="milk-calculator.breast_milk">🤱 모유</button>
+    </div>
+
+    <div class="input-row">
+      <div class="input-group">
+        <label data-i18n="common.child_s_age">아이 월령</label>
+        <select id="monthSel">
+          <option value="0" data-i18n="milk-calculator.newborn_0_1_month">신생아 (0~1개월)</option>
+          <option value="1" data-i18n="milk-calculator.1_month">1개월</option>
+          <option value="2" data-i18n="common.2_months">2개월</option>
+          <option value="3" data-i18n="milk-calculator.3_months">3개월</option>
+          <option value="4" selected data-i18n="common.4_months">4개월</option>
+          <option value="5" data-i18n="common.5_months">5개월</option>
+          <option value="6" data-i18n="common.6_months">6개월</option>
+          <option value="7" data-i18n="common.7_months">7개월</option>
+          <option value="8" data-i18n="common.8_months">8개월</option>
+          <option value="9" data-i18n="common.9_months">9개월</option>
+          <option value="10" data-i18n="common.10_months">10개월</option>
+          <option value="11" data-i18n="common.11_months">11개월</option>
+          <option value="12" data-i18n="common.12_months_1_yr">12개월(돌)</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label data-i18n="milk-calculator.weight_kg">체중 (kg)</label>
+        <input type="number" id="weight" placeholder="예: 6.5" step="0.1" min="1" max="20" data-i18n-attr="placeholder:milk-calculator.e_g_6_5">
+      </div>
+    </div>
+    <button class="calc-btn" onclick="calculate()" data-i18n="milk-calculator.calculate_feeding_amount">📊 수유량 계산하기</button>
+  </div>
+
+  <div id="results" class="hidden section-gap">
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
+      <div class="result-box" style="text-align:center;">
+        <div class="result-label" data-i18n="milk-calculator.daily_total">하루 총량</div>
+        <div class="result-value" id="dailyTotal" style="font-size:1.3rem;"></div>
+        <div class="result-sub" data-i18n="milk-calculator.ml_day">ml/일</div>
+      </div>
+      <div class="result-box amber" style="text-align:center;">
+        <div class="result-label" data-i18n="milk-calculator.per_feeding">1회 수유량</div>
+        <div class="result-value" id="perFeed" style="font-size:1.3rem;"></div>
+        <div class="result-sub" data-i18n="milk-calculator.ml_feed">ml/회</div>
+      </div>
+      <div class="result-box blue" style="text-align:center;">
+        <div class="result-label" data-i18n="milk-calculator.feedings_per_day">하루 횟수</div>
+        <div class="result-value" id="feedCount" style="font-size:1.3rem;"></div>
+        <div class="result-sub" data-i18n="milk-calculator.times_day">회/일</div>
+      </div>
+    </div>
+
+    <div class="info-box section-gap">
+      <p id="resultNote" style="line-height:1.75;"></p>
+    </div>
+
+    <div class="warn-box section-gap" data-i18n-html="milk-calculator.this_calculation_uses_about_150">
+      💡 이 계산은 <strong>체중의 약 150~160ml/kg</strong> 기준(분유) 또는 수유 빈도 기준(모유)을 사용해요. 아이가 더 먹거나 덜 먹더라도 체중이 잘 늘고 있다면 괜찮아요.
+    </div>
+  </div>
+
+  <div class="section-gap card">
+    <h2 class="block-title" data-i18n="milk-calculator.recommended_formula_amounts_by_age">월령별 분유 권장량 표</h2>
+    <table class="data-table">
+      <thead><tr><th data-i18n="milk-calculator.age">월령</th><th data-i18n="common.per_feeding">1회량</th><th data-i18n="milk-calculator.times_day_2">횟수/일</th><th data-i18n="milk-calculator.daily_total">하루 총량</th></tr></thead>
+      <tbody>
+        <tr><td data-i18n="milk-calculator.newborn_1_month">신생아~1개월</td><td>60~90ml</td><td data-i18n="milk-calculator.7_8_times">7~8회</td><td>480~720ml</td></tr>
+        <tr><td data-i18n="milk-calculator.1_2_months">1~2개월</td><td>90~120ml</td><td data-i18n="milk-calculator.6_7_times">6~7회</td><td>540~840ml</td></tr>
+        <tr><td data-i18n="milk-calculator.2_4_months">2~4개월</td><td>120~150ml</td><td data-i18n="milk-calculator.5_6_times">5~6회</td><td>600~900ml</td></tr>
+        <tr><td data-i18n="common.4_6_months">4~6개월</td><td>150~180ml</td><td data-i18n="milk-calculator.5_times">5회</td><td>750~900ml</td></tr>
+        <tr><td data-i18n="milk-calculator.6_8_months">6~8개월</td><td>160~200ml</td><td data-i18n="common.4_5_times">4~5회</td><td>640~1000ml</td></tr>
+        <tr><td data-i18n="milk-calculator.8_12_months">8~12개월</td><td>200~220ml</td><td data-i18n="common.3_4_times">3~4회</td><td>600~880ml</td></tr>
+        <tr><td data-i18n="milk-calculator.after_12_months">12개월 이후</td><td data-i18n="milk-calculator.toddler_food">유아식 병행</td><td data-i18n="common.2_3_times">2~3회</td><td>400~600ml</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 결과 영역 내 광고 -->
+<div class="ad-slot ad-result">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+       data-ad-slot="4444444444"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>if(typeof CONFIG!=="undefined"){var _ins=document.currentScript.previousElementSibling;_ins.setAttribute("data-ad-client",CONFIG.ADSENSE_CLIENT);_ins.setAttribute("data-ad-slot",CONFIG.AD_SLOTS.IN_RESULT);}</script>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+<div class="disclaimer section-gap" data-i18n="milk-calculator.these_results_reference_may_vary">
+    본 계산 결과는 참고용이며 아이의 성장 속도와 건강 상태에 따라 다를 수 있습니다. 수유량이 걱정된다면 소아과 전문의와 상담하세요.
+  </div>
+<!-- 푸터 위 광고 배너 -->
+<div class="ad-slot ad-footer">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+       data-ad-slot="5555555555"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>if(typeof CONFIG!=="undefined"){var _ins=document.currentScript.previousElementSibling;_ins.setAttribute("data-ad-client",CONFIG.ADSENSE_CLIENT);_ins.setAttribute("data-ad-slot",CONFIG.AD_SLOTS.FOOTER);}</script>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+</main>
+<div id="siteFooter" data-footer="tool"></div>
+<script src="../assets/js/pages/tools/milk-calculator.js"></script>
+</body></html>

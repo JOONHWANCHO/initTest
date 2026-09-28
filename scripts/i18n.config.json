@@ -1,0 +1,9 @@
+{
+  "_comment": "check-i18n.mjs 설정. requiredLangs 는 누락/미번역 시 오류, optionalLangs 는 경고만 냅니다(번역 진행 중인 언어).",
+  "sourceLang": "ko",
+  "requiredLangs": ["ko", "en", "ja"],
+  "optionalLangs": [],
+  "placeholderExceptions": ["play.k_views"],
+  "dynamicKeyPrefixes": ["cat.", "side.", "method.", "domain.", "ld.", "weaning-planner.weekday_"],
+  "hangulAllowedInTranslations": ["처음학교로"]
+}

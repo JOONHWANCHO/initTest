@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://noriya.kr/tools/growth-percentile.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://noriya.kr/tools/growth-percentile.html">
+<meta property="og:site_name" content="아이로그" data-i18n-attr="content:common.ailog">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://noriya.kr/assets/img/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="아이 성장 백분위수 계산기 — 키·몸무게 백분위 | 아이로그" data-i18n-attr="content:growth-percentile.child_growth_percentile_calculator_hei">
+<meta name="twitter:description" content="아이의 키와 몸무게를 입력하면 WHO 기준 백분위수를 계산해드려요." data-i18n-attr="content:growth-percentile.enter_child_s_height_weight">
+<link rel="preconnect" href="https://script.google.com">
+<link rel="preconnect" href="https://pagead2.googlesyndication.com">
+<title data-i18n="growth-percentile.child_growth_percentile_calculator_hei">아이 성장 백분위수 계산기 — 키·몸무게 백분위 | 아이로그</title>
+<meta name="description" content="아이의 키와 몸무게를 입력하면 WHO 기준 백분위수를 계산해드려요." data-i18n-attr="content:growth-percentile.enter_child_s_height_weight">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script src="../assets/i18n/i18n.js" data-ns="growth-percentile"></script>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/core/analytics.js"></script>
+<script src="../assets/js/data/tool-catalog.js" defer></script>
+<script src="../assets/js/components/partials.js" defer></script>
+<script src="../assets/js/components/nav.js" defer></script>
+<script src="../assets/js/data/baby-data.js" defer></script>
+<script src="../assets/js/features/baby.js" defer></script>
+<link rel="stylesheet" href="../assets/css/pages/tools/growth-percentile.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://noriya.kr/index.html"}, {"@type": "ListItem", "position": 2, "name": "성장 · 발달", "item": "https://noriya.kr/index.html#cat-성장발달"}, {"@type": "ListItem", "position": 3, "name": "아이 성장 백분위수 계산기", "item": "https://noriya.kr/tools/growth-percentile.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "아이 성장 백분위수 계산기 — 키·몸무게 백분위 | 아이로그", "description": "아이의 키와 몸무게를 입력하면 WHO 기준 백분위수를 계산해드려요.", "url": "https://noriya.kr/tools/growth-percentile.html", "applicationCategory": "LifestyleApplication", "operatingSystem": "Web", "inLanguage": "ko", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"}}</script>
+</head>
+<body data-root-prefix="../">
+<div id="siteHeader"></div>
+<nav class="breadcrumb" aria-label="breadcrumb">
+  <a href="../index.html" data-i18n="common.home_2">홈</a>
+  <span class="bc-sep">›</span>
+  <a href="../index.html#cat-성장발달" data-i18n="common.growth_development">성장 · 발달</a>
+  <span class="bc-sep">›</span>
+  <span class="bc-current" aria-current="page" data-i18n="common.child_growth_percentile_calculator">아이 성장 백분위수 계산기</span>
+</nav>
+<div class="tool-hero">
+  <div class="cat-tag" data-i18n="common.growth_development">성장 · 발달</div>
+  <h1 data-i18n="common.child_growth_percentile_calculator">아이 성장 백분위수 계산기</h1>
+  <p data-i18n-html="growth-percentile.enter_height_weight_see_how">키와 몸무게를 입력하면 또래 대비 백분위수를 알려드려요.<br>검진 전·후에 확인해보세요.</p>
+</div>
+<main>
+<!-- 상단 반응형 배너 광고 -->
+<div class="ad-slot ad-top">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+       data-ad-slot="1111111111"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>if(typeof CONFIG!=="undefined"){var _ins=document.currentScript.previousElementSibling;_ins.setAttribute("data-ad-client",CONFIG.ADSENSE_CLIENT);_ins.setAttribute("data-ad-slot",CONFIG.AD_SLOTS.TOP_BANNER);}</script>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+  <div class="card-raised card">
+    <div style="display:flex;gap:10px;margin-bottom:1.25rem;">
+      <button class="pill-btn active" onclick="setGender(this,'M')" id="gM" data-i18n="common.boy_2">👦 남아</button>
+      <button class="pill-btn" onclick="setGender(this,'F')" id="gF" data-i18n="common.girl_2">👧 여아</button>
+    </div>
+    <div class="input-row" style="margin-bottom:1rem;">
+      <div class="input-group">
+        <label data-i18n="common.age_months">월령 (개월)</label>
+        <input type="number" id="ageMonth" placeholder="예: 6" min="0" max="60" data-i18n-attr="placeholder:growth-percentile.e_g_6">
+      </div>
+      <div class="input-group">
+        <label data-i18n="growth-percentile.gender">성별</label>
+        <select id="genderSel" onchange="syncGender(this.value)">
+          <option value="M" data-i18n="common.boy">남아</option>
+          <option value="F" data-i18n="common.girl">여아</option>
+        </select>
+      </div>
+    </div>
+    <div class="input-row">
+      <div class="input-group">
+        <label data-i18n="growth-percentile.height_cm">키 (cm)</label>
+        <input type="number" id="height" placeholder="예: 67.5" step="0.1" data-i18n-attr="placeholder:growth-percentile.e_g_67_5">
+      </div>
+      <div class="input-group">
+        <label data-i18n="growth-percentile.weight_kg">몸무게 (kg)</label>
+        <input type="number" id="weight" placeholder="예: 7.2" step="0.1" data-i18n-attr="placeholder:growth-percentile.e_g_7_2">
+      </div>
+    </div>
+    <button class="calc-btn" onclick="calculate()" data-i18n="growth-percentile.calculate_percentile">📊 백분위 계산하기</button>
+  </div>
+
+  <div id="results" class="hidden section-gap">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+      <div class="result-box" id="heightResult">
+        <div class="result-label" data-i18n="growth-percentile.height_percentile">키 백분위</div>
+        <div class="big-percentile" id="heightPct">—</div>
+        <div class="pct-label" data-i18n="growth-percentile.percentile">백분위</div>
+        <div id="heightBadge"></div>
+        <div class="percentile-bar-wrap">
+          <div class="pbar-track"><div class="pbar-fill" id="hBar" style="width:50%"></div><div class="pbar-marker" id="hMarker" style="left:50%"></div></div>
+          <div class="pbar-zones"><span>3%</span><span>50%</span><span>97%</span></div>
+        </div>
+      </div>
+      <div class="result-box amber" id="weightResult">
+        <div class="result-label" data-i18n="growth-percentile.weight_percentile">몸무게 백분위</div>
+        <div class="big-percentile" id="weightPct">—</div>
+        <div class="pct-label" data-i18n="growth-percentile.percentile">백분위</div>
+        <div id="weightBadge"></div>
+        <div class="percentile-bar-wrap">
+          <div class="pbar-track"><div class="pbar-fill" id="wBar" style="background:var(--amber);width:50%"></div><div class="pbar-marker" id="wMarker" style="left:50%;background:var(--amber);"></div></div>
+          <div class="pbar-zones"><span>3%</span><span>50%</span><span>97%</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box section-gap" id="interpretation"></div>
+
+    <div class="warn-box section-gap" data-i18n-html="growth-percentile.growth_trend_matters_more_than">
+      ⚠️ 백분위 수치보다 <strong>성장 추세</strong>가 더 중요해요. 3개월마다 기록해서 꾸준히 같은 백분위를 유지하고 있는지 확인하세요. 백분위가 크게 떨어지거나 올라간다면 소아과 상담을 권장합니다.
+    </div>
+  </div>
+
+  <div class="section-gap card">
+    <h2 class="block-title" data-i18n="growth-percentile.how_read_percentiles">백분위 해석 기준</h2>
+    <table class="data-table">
+      <thead><tr><th data-i18n="growth-percentile.percentile">백분위</th><th data-i18n="growth-percentile.meaning">의미</th><th data-i18n="common.note">비고</th></tr></thead>
+      <tbody>
+        <tr><td data-i18n="growth-percentile.97_above">97% 이상</td><td data-i18n="growth-percentile.very_large">매우 큰 편</td><td data-i18n="growth-percentile.consider_consulting_about_growth_plate">성장판·체중 관리 상담 고려</td></tr>
+        <tr><td>85~97%</td><td data-i18n="growth-percentile.large">큰 편</td><td data-i18n="growth-percentile.normal_range">정상 범위</td></tr>
+        <tr><td>15~85%</td><td data-i18n="growth-percentile.average_range">평균 범위</td><td data-i18n="growth-percentile.normal">✅ 정상</td></tr>
+        <tr><td>3~15%</td><td data-i18n="growth-percentile.small">작은 편</td><td data-i18n="growth-percentile.normal_range_observe_trend">정상 범위, 추세 관찰</td></tr>
+        <tr><td data-i18n="growth-percentile.below_3">3% 미만</td><td data-i18n="growth-percentile.very_small">매우 작은 편</td><td data-i18n="growth-percentile.pediatric_consultation_recommended">소아과 상담 권장</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 결과 영역 내 광고 -->
+<div class="ad-slot ad-result">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+       data-ad-slot="4444444444"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>if(typeof CONFIG!=="undefined"){var _ins=document.currentScript.previousElementSibling;_ins.setAttribute("data-ad-client",CONFIG.ADSENSE_CLIENT);_ins.setAttribute("data-ad-slot",CONFIG.AD_SLOTS.IN_RESULT);}</script>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+<div class="disclaimer section-gap" data-i18n="growth-percentile.this_calculator_gives_simplified_estim">
+    본 계산기는 WHO 성장 기준과 한국 소아 성장 참조치를 단순화한 추정값으로, 정확한 의료적 판단을 대체하지 않습니다. 정기 영유아검진에서 의사의 평가를 받으세요.
+  </div>
+<!-- 푸터 위 광고 배너 -->
+<div class="ad-slot ad-footer">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+       data-ad-slot="5555555555"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>if(typeof CONFIG!=="undefined"){var _ins=document.currentScript.previousElementSibling;_ins.setAttribute("data-ad-client",CONFIG.ADSENSE_CLIENT);_ins.setAttribute("data-ad-slot",CONFIG.AD_SLOTS.FOOTER);}</script>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+</main>
+<div id="siteFooter" data-footer="tool"></div>
+<script src="../assets/js/pages/tools/growth-percentile.js"></script>
+</body></html>

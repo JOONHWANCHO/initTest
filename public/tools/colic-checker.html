@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://noriya.kr/tools/colic-checker.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://noriya.kr/tools/colic-checker.html">
+<meta property="og:site_name" content="아이로그" data-i18n-attr="content:common.ailog">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://noriya.kr/assets/img/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="영아산통 체크 & 달래기 가이드 | 아이로그" data-i18n-attr="content:colic-checker.infant_colic_checker_soothing_guide">
+<meta name="twitter:description" content="아기가 이유 없이 울고 있다면? 영아산통 여부를 체크하고 월령별 달래기 방법을 확인하세요." data-i18n-attr="content:colic-checker.baby_crying_no_reason_check">
+<link rel="preconnect" href="https://script.google.com">
+<link rel="preconnect" href="https://pagead2.googlesyndication.com">
+<title data-i18n="colic-checker.infant_colic_checker_soothing_guide">영아산통 체크 & 달래기 가이드 | 아이로그</title>
+<meta name="description" content="아기가 이유 없이 울고 있다면? 영아산통 여부를 체크하고 월령별 달래기 방법을 확인하세요." data-i18n-attr="content:colic-checker.baby_crying_no_reason_check">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script src="../assets/i18n/i18n.js" data-ns="colic-checker"></script>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/core/analytics.js"></script>
+<script src="../assets/js/data/tool-catalog.js" defer></script>
+<script src="../assets/js/components/partials.js" defer></script>
+<script src="../assets/js/components/nav.js" defer></script>
+<script src="../assets/js/data/baby-data.js" defer></script>
+<script src="../assets/js/features/baby.js" defer></script>
+<link rel="stylesheet" href="../assets/css/pages/tools/colic-checker.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://noriya.kr/index.html"}, {"@type": "ListItem", "position": 2, "name": "수유 · 수면", "item": "https://noriya.kr/index.html#cat-수면수유"}, {"@type": "ListItem", "position": 3, "name": "영아산통 체크 & 달래기 가이드", "item": "https://noriya.kr/tools/colic-checker.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "영아산통 체크 & 달래기 가이드 | 아이로그", "description": "아기가 이유 없이 울고 있다면? 영아산통 여부를 체크하고 월령별 달래기 방법을 확인하세요.", "url": "https://noriya.kr/tools/colic-checker.html", "applicationCategory": "LifestyleApplication", "operatingSystem": "Web", "inLanguage": "ko", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"}}</script>
+</head>
+<body data-root-prefix="../">
+<div id="siteHeader"></div>
+<nav class="breadcrumb" aria-label="breadcrumb">
+  <a href="../index.html" data-i18n="common.home_2">홈</a>
+  <span class="bc-sep">›</span>
+  <a href="../index.html#cat-수면수유" data-i18n="common.feeding_sleep">수유 · 수면</a>
+  <span class="bc-sep">›</span>
+  <span class="bc-current" aria-current="page" data-i18n="common.infant_colic_checker_soothing_guide">영아산통 체크 & 달래기 가이드</span>
+  <!-- <button type="button" class="night-toggle-btn" onclick="toggleNightMode()" aria-pressed="false">🌙 야간 모드</button> -->
+</nav>
+<div class="tool-hero">
+  <div class="cat-tag" data-i18n="common.feeding_sleep">수유 · 수면</div>
+  <h1 data-i18n="common.infant_colic_checker_soothing_guide">영아산통 체크 & 달래기 가이드</h1>
+  <p data-i18n-html="colic-checker.baby_crying_inconsolably_no_reason">아기가 이유 없이 자지러지게 운다면?<br>영아산통 여부를 체크하고 달래기 방법을 확인하세요.</p>
+</div>
+<main>
+  <!-- 상단 광고 -->
+  <div class="ad-slot ad-top">
+    <ins class="adsbygoogle" style="display:block" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>if(typeof CONFIG!=='undefined'){var i=document.currentScript.previousElementSibling;i.setAttribute('data-ad-client',CONFIG.ADSENSE_CLIENT);i.setAttribute('data-ad-slot',CONFIG.AD_SLOTS.TOP_BANNER);}(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+  <div class="card section-gap">
+    <span class="label" data-i18n="colic-checker.infant_colic_checklist_wessel_criteria">영아산통 체크리스트 (Wessel 기준)</span>
+    <ul class="check-list" id="checkList">
+      <li><input type="checkbox" onchange="calcScore()"><span data-i18n="colic-checker.cries_3_hours_day">하루 3시간 이상 울어요</span></li>
+      <li><input type="checkbox" onchange="calcScore()"><span data-i18n="colic-checker.happens_3_days_week">주 3일 이상 반복돼요</span></li>
+      <li><input type="checkbox" onchange="calcScore()"><span data-i18n="colic-checker.has_continued_3_weeks">3주 이상 지속되고 있어요</span></li>
+      <li><input type="checkbox" onchange="calcScore()"><span data-i18n="colic-checker.cries_hardest_evening_night">주로 저녁~밤에 심하게 울어요</span></li>
+      <li><input type="checkbox" onchange="calcScore()"><span data-i18n="colic-checker.pulls_legs_toward_belly_when">울 때 다리를 배 쪽으로 끌어당겨요</span></li>
+      <li><input type="checkbox" onchange="calcScore()"><span data-i18n="colic-checker.face_turns_red_belly_feels">얼굴이 빨개지고 배가 딱딱해요</span></li>
+      <li><input type="checkbox" onchange="calcScore()"><span data-i18n="colic-checker.can_t_be_soothed_by">수유·기저귀 교체 등으로 달래지지 않아요</span></li>
+      <li><input type="checkbox" onchange="calcScore()"><span data-i18n="colic-checker.between_2_4_months_old">생후 2~4개월 사이예요</span></li>
+    </ul>
+    <div class="score-box" id="scoreBox">
+      <div class="score-num" id="scoreNum">0 / 8</div>
+      <div class="score-label" id="scoreLabel" data-i18n="colic-checker.check_boxes_then_see_result">체크 후 결과를 확인하세요</div>
+    </div>
+  </div>
+
+  <div id="result" class="hidden section-gap">
+    <div id="resultBox"></div>
+  </div>
+
+  <div class="section-gap">
+    <h2 class="block-title" data-i18n="colic-checker.5_s_s_soothing_method">영아산통 달래기 5S 방법</h2>
+    <div class="method-card"><h3 data-i18n="colic-checker.shushing">🤫 쉿 소리 (Shushing)</h3><p data-i18n="colic-checker.make_shhhhh_sound_close_baby">아기 귀 가까이에서 "쉬이이이~" 소리를 내거나 화이트노이즈를 틀어줘요. 자궁 속 소리와 비슷해 안정감을 줘요.</p></div>
+    <div class="method-card"><h3 data-i18n="colic-checker.side_stomach_hold">🫂 옆으로 눕히기 (Side/Stomach)</h3><p data-i18n="colic-checker.hold_baby_their_side_tummy">아기를 옆으로 또는 배를 아래로 향하게 안아줘요. (수면 시에는 반드시 등을 아래로 눕혀야 해요)</p></div>
+    <div class="method-card"><h3 data-i18n="colic-checker.gentle_swinging">🔄 살살 흔들기 (Swinging)</h3><p data-i18n="colic-checker.rock_small_rhythmic_movements_shaking">작은 폭으로 리드미컬하게 흔들어줘요. 지나치게 세게 흔들면 위험하니 반드시 부드럽게!</p></div>
+    <div class="method-card"><h3 data-i18n="colic-checker.sucking">👅 빨기 (Sucking)</h3><p data-i18n="colic-checker.let_baby_suck_pacifier_finger">공갈젖꼭지나 손가락을 빨게 해줘요. 빠는 행위 자체가 진정 효과가 있어요.</p></div>
+    <div class="method-card"><h3 data-i18n="colic-checker.swaddling">🌯 포대기 싸기 (Swaddling)</h3><p data-i18n="colic-checker.wrap_baby_snugly_blanket_cozy">담요로 아기를 꼭 감싸줘요. 자궁 속처럼 아늑한 느낌이 울음을 줄여줘요.</p></div>
+  </div>
+
+  <div class="section-gap card">
+    <h2 class="block-title" data-i18n="colic-checker.infant_colic_faq">영아산통 자주 묻는 질문</h2>
+    <table class="data-table">
+      <thead><tr><th data-i18n="colic-checker.question">질문</th><th data-i18n="colic-checker.answer">답변</th></tr></thead>
+      <tbody>
+        <tr><td data-i18n="colic-checker.when_does_end">언제 끝나나요?</td><td data-i18n="colic-checker.most_cases_naturally_go_away">대부분 생후 3~4개월에 자연스럽게 사라져요</td></tr>
+        <tr><td data-i18n="colic-checker.what_causes">원인이 뭔가요?</td><td data-i18n="colic-checker.exact_cause_still_unknown_mix">아직 정확한 원인 불명 — 장 발달, 과도한 자극 등 복합 요인</td></tr>
+        <tr><td data-i18n="colic-checker.related_how_i_feed">수유 방식과 관련 있나요?</td><td data-i18n="colic-checker.happens_whether_breast_fed_formula">모유·분유 상관없이 발생해요</td></tr>
+        <tr><td data-i18n="colic-checker.should_i_go_doctor">병원에 가야 하나요?</td><td data-i18n="colic-checker.go_right_away_if_there">열·구토·혈변 동반 시 즉시 방문, 체중이 늘지 않을 때도 상담</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="danger-box section-gap" data-i18n-html="colic-checker.go_er_immediately_if_accompanied">
+    ⚠️ <strong>즉시 응급실 방문:</strong> 38°C 이상 열, 초록빛 구토, 혈변, 의식 저하가 동반된 경우 영아산통이 아닐 수 있어요.
+  </div>
+
+  <!-- 결과 내 광고 -->
+  <div class="ad-slot ad-result">
+    <ins class="adsbygoogle" style="display:block" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>if(typeof CONFIG!=='undefined'){var i=document.currentScript.previousElementSibling;i.setAttribute('data-ad-client',CONFIG.ADSENSE_CLIENT);i.setAttribute('data-ad-slot',CONFIG.AD_SLOTS.IN_RESULT);}(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+  <div class="disclaimer section-gap" data-i18n="colic-checker.infant_colic_checklist_does_not">영아산통 체크리스트는 의학적 진단을 대체하지 않습니다. 아기 상태가 걱정된다면 소아과 전문의와 상담하세요.</div>
+</main>
+<div id="siteFooter" data-footer="tool"></div>
+<script src="../assets/js/pages/tools/colic-checker.js"></script>
+</body></html>

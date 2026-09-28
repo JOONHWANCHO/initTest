@@ -1,0 +1,63 @@
+/* 페이지 전용 스타일 — growth.html (공통 토큰/컴포넌트는 assets/css/style.css) */
+.growth-wrap{max-width:740px;margin:0 auto;padding:1.25rem 1rem 3rem;}
+.section-title{display:flex;align-items:center;gap:8px;font-size:16px;font-weight:800;color:var(--text);margin:0 0 .9rem;}
+.section-title .st-icon{font-size:19px;}
+.section-desc{font-size:12.5px;color:var(--text-muted);margin:-.5rem 0 1rem;}
+
+/* 프로필 폼 */
+.profile-form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+.profile-form-row.full{grid-template-columns:1fr;}
+.privacy-note{display:flex;align-items:flex-start;gap:6px;font-size:11.5px;color:var(--text-muted);background:var(--surface);border-radius:var(--radius-sm);padding:.7rem .85rem;margin-top:1rem;line-height:1.5;}
+.profile-chip-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:1rem;}
+.profile-chip{display:flex;align-items:center;gap:8px;background:var(--primary-light);border:1.5px solid var(--primary-mid);border-radius:99px;padding:8px 14px 8px 10px;}
+.profile-chip .pc-emoji{width:28px;height:28px;border-radius:50%;background:var(--primary-mid);display:flex;align-items:center;justify-content:center;font-size:14px;}
+.profile-chip .pc-name{font-weight:800;font-size:13px;color:var(--primary-dark);}
+.profile-chip .pc-age{font-size:11.5px;color:var(--text-muted);}
+.profile-chip-actions{display:flex;gap:6px;}
+.profile-chip-actions button{border:none;background:none;cursor:pointer;font-size:12px;color:var(--text-muted);text-decoration:underline;font-family:inherit;padding:2px;}
+.profile-chip-actions button:hover{color:var(--red);}
+
+/* 오늘 요약 */
+.today-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;}
+.today-card{background:#fff;border:1px solid var(--gray-100);border-radius:var(--radius);padding:1rem 1.1rem;}
+.today-card .tc-label{font-size:11px;font-weight:700;color:var(--text-muted);margin-bottom:6px;display:flex;align-items:center;gap:5px;}
+.today-card .tc-value{font-size:1.35rem;font-weight:800;color:var(--primary-dark);line-height:1.25;}
+.today-card .tc-sub{font-size:11.5px;color:var(--text-muted);margin-top:3px;}
+@media (max-width:480px){.today-grid{grid-template-columns:1fr;}}
+
+/* 예방접종 */
+.vac-list{display:flex;flex-direction:column;gap:6px;}
+.vac-row{display:flex;align-items:center;gap:10px;padding:.65rem .8rem;background:#fff;border:1px solid var(--gray-100);border-radius:var(--radius-sm);}
+.vac-row.is-done{opacity:.55;}
+.vac-check{width:20px;height:20px;flex-shrink:0;accent-color:var(--primary);cursor:pointer;}
+.vac-name{flex:1;font-size:13px;font-weight:600;color:var(--text);}
+.vac-row.is-done .vac-name{text-decoration:line-through;}
+.vac-due{font-size:11px;color:var(--text-muted);white-space:nowrap;}
+details.vac-done-details{margin-top:.6rem;}
+details.vac-done-details summary{font-size:12px;color:var(--text-muted);cursor:pointer;padding:.4rem 0;}
+
+/* 성장기록 */
+.growth-add-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
+.growth-add-row .full-span{grid-column:1/-1;}
+@media (max-width:560px){.growth-add-row{grid-template-columns:1fr 1fr;}}
+.chart-wrap{position:relative;height:220px;margin:1.1rem 0;}
+.growth-history{display:flex;flex-direction:column;gap:6px;margin-top:.75rem;}
+.gh-row{display:flex;align-items:center;gap:10px;padding:.6rem .8rem;background:#fff;border:1px solid var(--gray-100);border-radius:var(--radius-sm);font-size:12.5px;}
+.gh-date{font-weight:700;color:var(--text);min-width:82px;}
+.gh-vals{flex:1;color:var(--text-muted);}
+.gh-note{color:var(--text-muted);font-style:italic;}
+.gh-del{border:none;background:none;color:var(--gray-400);cursor:pointer;font-size:15px;padding:2px 4px;}
+.gh-del:hover{color:var(--red);}
+.empty-note{font-size:12.5px;color:var(--text-muted);padding:1rem;text-align:center;background:var(--surface);border-radius:var(--radius-sm);}
+
+/* 뱃지 */
+.badge-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;}
+.badge-item{background:#fff;border:1px solid var(--gray-100);border-radius:var(--radius);padding:1rem .75rem;text-align:center;}
+.badge-item.locked{opacity:.38;filter:grayscale(1);}
+.badge-item .bi-emoji{font-size:28px;line-height:1;margin-bottom:6px;}
+.badge-item .bi-name{font-size:11.5px;font-weight:700;color:var(--text);}
+.badge-item .bi-desc{font-size:10.5px;color:var(--text-muted);margin-top:2px;}
+.streak-strip{display:flex;align-items:center;gap:14px;background:var(--amber-light);border-radius:var(--radius);padding:.9rem 1.1rem;margin-bottom:1rem;}
+.streak-strip .ss-emoji{font-size:30px;}
+.streak-strip .ss-num{font-size:1.3rem;font-weight:800;color:#7A5710;}
+.streak-strip .ss-label{font-size:11.5px;color:#8A5A10;}

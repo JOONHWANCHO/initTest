@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://noriya.kr/tools/tooth-checker.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://noriya.kr/tools/tooth-checker.html">
+<meta property="og:site_name" content="아이로그" data-i18n-attr="content:common.ailog">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://noriya.kr/assets/img/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="유치 발육 시기 체커 — 아기 이앓이 가이드 | 아이로그" data-i18n-attr="content:tooth-checker.tooth_eruption_checker_baby_teething">
+<meta name="twitter:description" content="아이 월령을 선택하면 어떤 이가 나올 시기인지, 이앓이 증상과 대처법을 알려드려요." data-i18n-attr="content:tooth-checker.choose_child_s_age_see">
+<link rel="preconnect" href="https://script.google.com">
+<link rel="preconnect" href="https://pagead2.googlesyndication.com">
+<title data-i18n="tooth-checker.tooth_eruption_checker_baby_teething">유치 발육 시기 체커 — 아기 이앓이 가이드 | 아이로그</title>
+<meta name="description" content="아이 월령을 선택하면 어떤 이가 나올 시기인지, 이앓이 증상과 대처법을 알려드려요." data-i18n-attr="content:tooth-checker.choose_child_s_age_see">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script src="../assets/i18n/i18n.js" data-ns="tooth-checker"></script>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/core/analytics.js"></script>
+<script src="../assets/js/data/tool-catalog.js" defer></script>
+<script src="../assets/js/components/partials.js" defer></script>
+<script src="../assets/js/components/nav.js" defer></script>
+<script src="../assets/js/data/baby-data.js" defer></script>
+<script src="../assets/js/features/baby.js" defer></script>
+<link rel="stylesheet" href="../assets/css/pages/tools/tooth-checker.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://noriya.kr/index.html"}, {"@type": "ListItem", "position": 2, "name": "성장 · 발달", "item": "https://noriya.kr/index.html#cat-성장발달"}, {"@type": "ListItem", "position": 3, "name": "유치 발육 시기 체커", "item": "https://noriya.kr/tools/tooth-checker.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "유치 발육 시기 체커 — 아기 이앓이 가이드 | 아이로그", "description": "아이 월령을 선택하면 어떤 이가 나올 시기인지, 이앓이 증상과 대처법을 알려드려요.", "url": "https://noriya.kr/tools/tooth-checker.html", "applicationCategory": "LifestyleApplication", "operatingSystem": "Web", "inLanguage": "ko", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"}}</script>
+</head>
+<body data-root-prefix="../">
+<div id="siteHeader"></div>
+<nav class="breadcrumb" aria-label="breadcrumb">
+  <a href="../index.html" data-i18n="common.home_2">홈</a>
+  <span class="bc-sep">›</span>
+  <a href="../index.html#cat-성장발달" data-i18n="common.growth_development">성장 · 발달</a>
+  <span class="bc-sep">›</span>
+  <span class="bc-current" aria-current="page" data-i18n="common.tooth_eruption_checker">유치 발육 시기 체커</span>
+</nav>
+<div class="tool-hero">
+  <div class="cat-tag" data-i18n="common.growth_development">성장 · 발달</div>
+  <h1 data-i18n="common.tooth_eruption_checker">유치 발육 시기 체커</h1>
+  <p data-i18n-html="tooth-checker.choose_child_s_age_see_2">아이 월령을 선택하면 어떤 이가 나올 시기인지,<br>이앓이 증상과 대처법을 알려드려요.</p>
+</div>
+<main>
+  <div class="ad-slot ad-top">
+    <ins class="adsbygoogle" style="display:block" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>if(typeof CONFIG!=='undefined'){var i=document.currentScript.previousElementSibling;i.setAttribute('data-ad-client',CONFIG.ADSENSE_CLIENT);i.setAttribute('data-ad-slot',CONFIG.AD_SLOTS.TOP_BANNER);}(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+  <div class="card section-gap">
+    <span class="label" data-i18n="common.child_s_age">아이 월령</span>
+    <div class="btn-group" id="monthBtns"></div>
+  </div>
+
+  <div id="result" class="hidden section-gap">
+    <div class="card">
+      <div class="legend-row" data-i18n-html="tooth-checker.already_coming_around_now_not">
+        <span style="display:flex;align-items:center;gap:4px;"><span class="legend-dot" style="background:var(--primary-light);border:1px solid var(--primary);"></span>이미 났어요</span>
+        <span style="display:flex;align-items:center;gap:4px;"><span class="legend-dot" style="background:var(--amber-light);border:1px solid var(--amber);"></span>지금 이맘때 나요</span>
+        <span style="display:flex;align-items:center;gap:4px;"><span class="legend-dot" style="background:var(--surface);border:1px solid var(--gray-200);"></span>아직이에요</span>
+      </div>
+      <!-- 위 치아 (왼→오른쪽 = 아이 기준 오→왼) -->
+      <div style="text-align:center;font-size:11px;color:var(--text-muted);margin-bottom:4px;" data-i18n="tooth-checker.upper_teeth">⬆ 윗니</div>
+      <div class="tooth-map" id="upperTeeth"></div>
+      <div style="text-align:center;font-size:11px;color:var(--text-muted);margin:8px 0 4px;" data-i18n="tooth-checker.lower_teeth">⬇ 아랫니</div>
+      <div class="tooth-map" id="lowerTeeth"></div>
+    </div>
+
+    <div id="currentInfo" class="result-box amber section-gap"></div>
+
+    <div class="section-gap card">
+      <h2 class="block-title" data-i18n="tooth-checker.how_cope_teething">이앓이 대처법</h2>
+      <table class="data-table">
+        <thead><tr><th data-i18n="tooth-checker.method">방법</th><th data-i18n="tooth-checker.details">내용</th></tr></thead>
+        <tbody>
+          <tr><td data-i18n="tooth-checker.cold_teether">🧊 냉각 티링</td><td data-i18n="tooth-checker.let_them_chew_teether_kept">냉장 보관한 치아발육기를 물게 해요 (냉동은 너무 차가워요)</td></tr>
+          <tr><td data-i18n="tooth-checker.gum_massage">👆 잇몸 마사지</td><td data-i18n="tooth-checker.gently_rub_gums_clean_finger">깨끗한 손가락으로 잇몸을 부드럽게 문질러줘요</td></tr>
+          <tr><td data-i18n="tooth-checker.hard_foods">🥕 딱딱한 음식</td><td data-i18n="tooth-checker.after_6_months_cold_carrot">6개월 이후 차가운 당근·오이 스틱 (질식 주의, 항상 옆에서 봐주세요)</td></tr>
+          <tr><td data-i18n="tooth-checker.fever_reducer">💊 해열제</td><td data-i18n="tooth-checker.if_pain_severe_they_can">통증이 심해 잠 못 자면 소아용 아세트아미노펜 적정 용량 가능</td></tr>
+          <tr><td data-i18n="tooth-checker.brushing_teeth">🦷 치아 닦기</td><td data-i18n="tooth-checker.as_soon_as_first_tooth">첫 이가 나면 바로 실리콘 칫솔로 닦아줘요 (불소치약 쌀알만큼)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="warn-box section-gap" data-i18n-html="tooth-checker.symptoms_easily_mistaken_teething_high">
+      ⚠️ <strong>이앓이로 착각하기 쉬운 증상:</strong> 38.5°C 이상 고열, 설사, 발진은 이앓이 증상이 아니에요. 다른 원인일 수 있으니 소아과 방문이 필요해요.
+    </div>
+
+    <div class="ad-slot ad-result">
+      <ins class="adsbygoogle" style="display:block" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>if(typeof CONFIG!=='undefined'){var i=document.currentScript.previousElementSibling;i.setAttribute('data-ad-client',CONFIG.ADSENSE_CLIENT);i.setAttribute('data-ad-slot',CONFIG.AD_SLOTS.IN_RESULT);}(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+    </div>
+  </div>
+
+  <div class="disclaimer section-gap" data-i18n="tooth-checker.tooth_eruption_timing_varies_lot">치아 발육 시기는 개인차가 크며, 위 정보는 평균 기준이에요. 12개월까지 첫 이가 나지 않으면 소아치과 상담을 권장해요.</div>
+</main>
+<div id="siteFooter" data-footer="tool"></div>
+<script src="../assets/js/pages/tools/tooth-checker.js"></script>
+</body></html>

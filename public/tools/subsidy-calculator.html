@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://noriya.kr/tools/subsidy-calculator.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://noriya.kr/tools/subsidy-calculator.html">
+<meta property="og:site_name" content="아이로그" data-i18n-attr="content:common.ailog">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://noriya.kr/assets/img/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="육아 지원금 총정리 계산기 — 부모급여·아동수당·첫만남이용권 | 아이로그" data-i18n-attr="content:subsidy-calculator.parenting_benefits_calculator_parental">
+<meta name="twitter:description" content="생년월일을 입력하면 받을 수 있는 부모급여, 아동수당, 첫만남이용권 등 육아 지원금 총액을 자동 계산해드려요." data-i18n-attr="content:subsidy-calculator.enter_birth_date_automatically_calcula">
+<link rel="preconnect" href="https://script.google.com">
+<link rel="preconnect" href="https://pagead2.googlesyndication.com">
+<title data-i18n="subsidy-calculator.parenting_benefits_calculator_parental">육아 지원금 총정리 계산기 — 부모급여·아동수당·첫만남이용권 | 아이로그</title>
+<meta name="description" content="생년월일을 입력하면 받을 수 있는 부모급여, 아동수당, 첫만남이용권 등 육아 지원금 총액을 자동 계산해드려요." data-i18n-attr="content:subsidy-calculator.enter_birth_date_automatically_calcula">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script src="../assets/i18n/i18n.js" data-ns="subsidy-calculator"></script>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/core/analytics.js"></script>
+<script src="../assets/js/data/tool-catalog.js" defer></script>
+<script src="../assets/js/components/partials.js" defer></script>
+<script src="../assets/js/components/nav.js" defer></script>
+<script src="../assets/js/data/baby-data.js" defer></script>
+<script src="../assets/js/features/baby.js" defer></script>
+<link rel="stylesheet" href="../assets/css/pages/tools/subsidy-calculator.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://noriya.kr/index.html"}, {"@type": "ListItem", "position": 2, "name": "임신 · 행정", "item": "https://noriya.kr/index.html#cat-임신행정"}, {"@type": "ListItem", "position": 3, "name": "육아 지원금 총정리 계산기", "item": "https://noriya.kr/tools/subsidy-calculator.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "육아 지원금 총정리 계산기 — 부모급여·아동수당·첫만남이용권 | 아이로그", "description": "생년월일을 입력하면 받을 수 있는 부모급여, 아동수당, 첫만남이용권 등 육아 지원금 총액을 자동 계산해드려요.", "url": "https://noriya.kr/tools/subsidy-calculator.html", "applicationCategory": "LifestyleApplication", "operatingSystem": "Web", "inLanguage": "ko", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"}}</script>
+</head>
+<body data-root-prefix="../">
+<div id="siteHeader"></div>
+<nav class="breadcrumb" aria-label="breadcrumb">
+  <a href="../index.html" data-i18n="common.home_2">홈</a>
+  <span class="bc-sep">›</span>
+  <a href="../index.html#cat-임신행정" data-i18n="common.pregnancy_admin">임신 · 행정</a>
+  <span class="bc-sep">›</span>
+  <span class="bc-current" aria-current="page" data-i18n="common.parenting_benefits_calculator">육아 지원금 총정리 계산기</span>
+</nav>
+<div class="tool-hero">
+  <div class="cat-tag" data-i18n="common.pregnancy_admin">임신 · 행정</div>
+  <h1 data-i18n="common.parenting_benefits_calculator">육아 지원금 총정리 계산기</h1>
+  <p data-i18n-html="subsidy-calculator.enter_birth_date_calculate_national">생년월일을 입력하면 받을 수 있는 국가 육아 지원금을<br>한 번에 계산해드려요. (2026년 기준)</p>
+</div>
+<main>
+<!-- 상단 반응형 배너 광고 -->
+<div class="ad-slot ad-top">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+       data-ad-slot="1111111111"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>if(typeof CONFIG!=="undefined"){var _ins=document.currentScript.previousElementSibling;_ins.setAttribute("data-ad-client",CONFIG.ADSENSE_CLIENT);_ins.setAttribute("data-ad-slot",CONFIG.AD_SLOTS.TOP_BANNER);}</script>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+  <div class="card-raised card">
+    <div class="input-group">
+      <label data-i18n="common.child_s_birth_date">아이 생년월일</label>
+      <input type="date" id="birthDate" max="">
+    </div>
+    <button class="calc-btn" onclick="calculate()" data-i18n="subsidy-calculator.calculate_benefits">💰 지원금 계산하기</button>
+  </div>
+
+  <div id="results" class="hidden section-gap">
+    <div id="subsidyList"></div>
+    <div class="total-box" id="totalBox"></div>
+
+    <div class="section-gap card">
+      <h2 class="block-title" data-i18n="subsidy-calculator.how_apply_major_benefits">주요 지원금 신청 방법</h2>
+      <table class="data-table">
+        <thead><tr><th data-i18n="subsidy-calculator.benefit">지원금</th><th data-i18n="subsidy-calculator.how_apply">신청 방법</th><th data-i18n="common.when_apply">신청 시기</th></tr></thead>
+        <tbody>
+          <tr><td data-i18n="subsidy-calculator.first_meeting_voucher">첫만남이용권</td><td data-i18n="subsidy-calculator.gov24_happy_birth_one_stop">정부24, 행복출산 원스톱</td><td data-i18n="subsidy-calculator.together_birth_registration">출생 신고 시 함께</td></tr>
+          <tr><td data-i18n="subsidy-calculator.parental_pay">부모급여</td><td data-i18n="subsidy-calculator.bokjiro_community_center">복지로, 주민센터</td><td data-i18n="subsidy-calculator.within_60_days_birth">출생 후 60일 이내</td></tr>
+          <tr><td data-i18n="subsidy-calculator.child_allowance">아동수당</td><td data-i18n="subsidy-calculator.bokjiro_community_center">복지로, 주민센터</td><td data-i18n="subsidy-calculator.within_60_days_birth">출생 후 60일 이내</td></tr>
+          <tr><td data-i18n="subsidy-calculator.infant_allowance_childcare_fee">영아수당(보육료)</td><td data-i18n="subsidy-calculator.bokjiro">복지로</td><td data-i18n="subsidy-calculator.paid_automatically_every_month">매월 자동 지급</td></tr>
+          <tr><td data-i18n="subsidy-calculator.birth_support_local_government">출산지원금(지자체)</td><td data-i18n="subsidy-calculator.local_community_center">거주 주민센터</td><td data-i18n="subsidy-calculator.within_1_month_birth">출생 후 1개월 이내</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="warn-box section-gap" data-i18n-html="subsidy-calculator.easy_miss_benefit_if_don">
+      💡 <strong>놓치기 쉬운 혜택:</strong> 출생 후 60일 이내 신청 안 하면 소급 적용이 안 돼요! 출생 신고 후 바로 복지로(www.bokjiro.go.kr)에서 통합 신청하세요.
+    </div>
+  </div>
+
+  <div class="info-box section-gap">
+    <p data-i18n-html="subsidy-calculator.key_changes_2026_parental_pay"><strong>📌 2026년 기준 주요 변경사항</strong><br>
+    • 부모급여: 0세 월 100만원, 1세 월 50만원으로 인상<br>
+    • 첫만남이용권: 첫째 200만원, 둘째 이상 300만원<br>
+    • 아동수당: 만 8세 미만 월 10만원 (소득 무관)<br>
+    • 지자체별 추가 출산장려금은 별도 문의 필요</p>
+  </div>
+
+  <!-- 결과 영역 내 광고 -->
+<div class="ad-slot ad-result">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+       data-ad-slot="4444444444"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>if(typeof CONFIG!=="undefined"){var _ins=document.currentScript.previousElementSibling;_ins.setAttribute("data-ad-client",CONFIG.ADSENSE_CLIENT);_ins.setAttribute("data-ad-slot",CONFIG.AD_SLOTS.IN_RESULT);}</script>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+<div class="disclaimer section-gap" data-i18n="subsidy-calculator.this_calculator_follows_government_s">
+    본 계산기는 2026년 정부 발표 기준이며 변경될 수 있어요. 정확한 금액과 신청 방법은 복지로(www.bokjiro.go.kr) 또는 주민센터에서 확인하세요.
+  </div>
+<!-- 푸터 위 광고 배너 -->
+<div class="ad-slot ad-footer">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+       data-ad-slot="5555555555"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>if(typeof CONFIG!=="undefined"){var _ins=document.currentScript.previousElementSibling;_ins.setAttribute("data-ad-client",CONFIG.ADSENSE_CLIENT);_ins.setAttribute("data-ad-slot",CONFIG.AD_SLOTS.FOOTER);}</script>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+</main>
+<div id="siteFooter" data-footer="tool"></div>
+<script src="../assets/js/pages/tools/subsidy-calculator.js"></script>
+</body></html>

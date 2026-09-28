@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://noriya.kr/tools/birth-checklist.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://noriya.kr/tools/birth-checklist.html">
+<meta property="og:site_name" content="아이로그" data-i18n-attr="content:common.ailog">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://noriya.kr/assets/img/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="출산 준비물 체크리스트 — 입원가방부터 신생아 용품까지 | 아이로그" data-i18n-attr="content:birth-checklist.birth_preparation_checklist_from_hospi">
+<meta name="twitter:description" content="출산 입원 가방부터 신생아 용품까지 빠짐없이 체크하세요. 항목을 체크하면 진행률이 표시돼요." data-i18n-attr="content:birth-checklist.check_off_everything_from_hospital">
+<link rel="preconnect" href="https://script.google.com">
+<link rel="preconnect" href="https://pagead2.googlesyndication.com">
+<title data-i18n="birth-checklist.birth_preparation_checklist_from_hospi">출산 준비물 체크리스트 — 입원가방부터 신생아 용품까지 | 아이로그</title>
+<meta name="description" content="출산 입원 가방부터 신생아 용품까지 빠짐없이 체크하세요. 항목을 체크하면 진행률이 표시돼요." data-i18n-attr="content:birth-checklist.check_off_everything_from_hospital">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script src="../assets/i18n/i18n.js" data-ns="birth-checklist"></script>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/core/analytics.js"></script>
+<script src="../assets/js/data/tool-catalog.js" defer></script>
+<script src="../assets/js/components/partials.js" defer></script>
+<script src="../assets/js/components/nav.js" defer></script>
+<script src="../assets/js/data/baby-data.js" defer></script>
+<script src="../assets/js/features/baby.js" defer></script>
+<link rel="stylesheet" href="../assets/css/pages/tools/birth-checklist.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://noriya.kr/index.html"}, {"@type": "ListItem", "position": 2, "name": "임신 · 행정", "item": "https://noriya.kr/index.html#cat-임신행정"}, {"@type": "ListItem", "position": 3, "name": "출산 준비물 체크리스트", "item": "https://noriya.kr/tools/birth-checklist.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "출산 준비물 체크리스트 — 입원가방부터 신생아 용품까지 | 아이로그", "description": "출산 입원 가방부터 신생아 용품까지 빠짐없이 체크하세요. 항목을 체크하면 진행률이 표시돼요.", "url": "https://noriya.kr/tools/birth-checklist.html", "applicationCategory": "LifestyleApplication", "operatingSystem": "Web", "inLanguage": "ko", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"}}</script>
+</head>
+<body data-root-prefix="../">
+<div id="siteHeader"></div>
+<nav class="breadcrumb" aria-label="breadcrumb">
+  <a href="../index.html" data-i18n="common.home_2">홈</a>
+  <span class="bc-sep">›</span>
+  <a href="../index.html#cat-임신행정" data-i18n="common.pregnancy_admin">임신 · 행정</a>
+  <span class="bc-sep">›</span>
+  <span class="bc-current" aria-current="page" data-i18n="common.birth_preparation_checklist">출산 준비물 체크리스트</span>
+</nav>
+<div class="tool-hero">
+  <div class="cat-tag" data-i18n="common.pregnancy_admin">임신 · 행정</div>
+  <h1 data-i18n="common.birth_preparation_checklist">출산 준비물 체크리스트</h1>
+  <p data-i18n-html="birth-checklist.check_off_everything_from_hospital_2">입원 가방부터 신생아 용품까지 빠짐없이 체크하세요.<br>진행률이 자동으로 표시돼요.</p>
+</div>
+<main>
+  <div class="ad-slot ad-top">
+    <ins class="adsbygoogle" style="display:block" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>if(typeof CONFIG!=='undefined'){var i=document.currentScript.previousElementSibling;i.setAttribute('data-ad-client',CONFIG.ADSENSE_CLIENT);i.setAttribute('data-ad-slot',CONFIG.AD_SLOTS.TOP_BANNER);}(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+  <div class="card section-gap">
+    <div style="display:flex;align-items:center;justify-content:space-between;">
+      <span class="label" style="margin:0;" data-i18n="birth-checklist.overall_progress">전체 진행률</span>
+      <button class="reset-btn" onclick="resetAll()" data-i18n="birth-checklist.reset_all">🗑 전체 초기화</button>
+    </div>
+    <div class="progress-wrap"><div class="progress-fill" id="totalBar" style="width:0%"></div></div>
+    <div class="progress-text" id="totalText" data-i18n="birth-checklist.0_0_items_done">0 / 0 항목 완료</div>
+  </div>
+
+  <div class="section-gap" id="checklistWrap"></div>
+
+  <div class="warn-box section-gap" data-i18n-html="birth-checklist.pack_hospital_bag_4_6">
+    💡 <strong>출산 예정일 4~6주 전</strong>에 입원 가방을 미리 싸두세요. 예정일보다 일찍 진통이 시작될 수 있어요.
+  </div>
+
+  <div class="ad-slot ad-result">
+    <ins class="adsbygoogle" style="display:block" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>if(typeof CONFIG!=='undefined'){var i=document.currentScript.previousElementSibling;i.setAttribute('data-ad-client',CONFIG.ADSENSE_CLIENT);i.setAttribute('data-ad-slot',CONFIG.AD_SLOTS.IN_RESULT);}(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+  <div class="disclaimer section-gap" data-i18n="birth-checklist.this_list_general_guide_be">준비물 목록은 일반적인 가이드이며, 병원별 입원 안내문을 반드시 확인하세요.</div>
+</main>
+<div id="siteFooter" data-footer="tool"></div>
+<script src="../assets/js/pages/tools/birth-checklist.js"></script>
+</body></html>

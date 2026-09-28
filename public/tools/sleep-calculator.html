@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://noriya.kr/tools/sleep-calculator.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://noriya.kr/tools/sleep-calculator.html">
+<meta property="og:site_name" content="아이로그" data-i18n-attr="content:common.ailog">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://noriya.kr/assets/img/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="아기 수면 사이클 계산기 — 취침·기상·낮잠 시간 | 아이로그" data-i18n-attr="content:sleep-calculator.baby_sleep_cycle_calculator_bedtime">
+<meta name="twitter:description" content="아기 취침 시간을 입력하면 수면 사이클에 맞는 최적 기상 시간과 낮잠 스케줄을 알려드려요." data-i18n-attr="content:sleep-calculator.enter_baby_s_bedtime_get">
+<link rel="preconnect" href="https://script.google.com">
+<link rel="preconnect" href="https://pagead2.googlesyndication.com">
+<title data-i18n="sleep-calculator.baby_sleep_cycle_calculator_bedtime">아기 수면 사이클 계산기 — 취침·기상·낮잠 시간 | 아이로그</title>
+<meta name="description" content="아기 취침 시간을 입력하면 수면 사이클에 맞는 최적 기상 시간과 낮잠 스케줄을 알려드려요." data-i18n-attr="content:sleep-calculator.enter_baby_s_bedtime_get">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script src="../assets/i18n/i18n.js" data-ns="sleep-calculator"></script>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/core/analytics.js"></script>
+<script src="../assets/js/data/tool-catalog.js" defer></script>
+<script src="../assets/js/components/partials.js" defer></script>
+<script src="../assets/js/components/nav.js" defer></script>
+<script src="../assets/js/data/baby-data.js" defer></script>
+<script src="../assets/js/features/baby.js" defer></script>
+<link rel="stylesheet" href="../assets/css/pages/tools/sleep-calculator.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://noriya.kr/index.html"}, {"@type": "ListItem", "position": 2, "name": "수유 · 수면", "item": "https://noriya.kr/index.html#cat-수면수유"}, {"@type": "ListItem", "position": 3, "name": "아기 수면 사이클 계산기", "item": "https://noriya.kr/tools/sleep-calculator.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "아기 수면 사이클 계산기 — 취침·기상·낮잠 시간 | 아이로그", "description": "아기 취침 시간을 입력하면 수면 사이클에 맞는 최적 기상 시간과 낮잠 스케줄을 알려드려요.", "url": "https://noriya.kr/tools/sleep-calculator.html", "applicationCategory": "LifestyleApplication", "operatingSystem": "Web", "inLanguage": "ko", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"}}</script>
+</head>
+<body data-root-prefix="../">
+<div id="siteHeader"></div>
+
+<nav class="breadcrumb" aria-label="breadcrumb">
+  <a href="../index.html" data-i18n="common.home_2">홈</a>
+  <span class="bc-sep">›</span>
+  <a href="../index.html#cat-수면수유" data-i18n="common.feeding_sleep">수유 · 수면</a>
+  <span class="bc-sep">›</span>
+  <span class="bc-current" aria-current="page" data-i18n="common.baby_sleep_cycle_calculator">아기 수면 사이클 계산기</span>
+  <!-- <button type="button" class="night-toggle-btn" onclick="toggleNightMode()" aria-pressed="false">🌙 야간 모드</button> -->
+</nav>
+<div class="tool-hero">
+  <div class="cat-tag" data-i18n="common.feeding_sleep">수유 · 수면</div>
+  <h1 data-i18n="common.baby_sleep_cycle_calculator">아기 수면 사이클 계산기</h1>
+  <p data-i18n-html="sleep-calculator.enter_bedtime_we_ll_tell">취침 시간을 입력하면 수면 사이클(45~90분)에 맞는<br>최적 기상 시간을 알려드려요.</p>
+</div>
+
+<main>
+<!-- 상단 반응형 배너 광고 -->
+<div class="ad-slot ad-top">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+       data-ad-slot="1111111111"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>if(typeof CONFIG!=="undefined"){var _ins=document.currentScript.previousElementSibling;_ins.setAttribute("data-ad-client",CONFIG.ADSENSE_CLIENT);_ins.setAttribute("data-ad-slot",CONFIG.AD_SLOTS.TOP_BANNER);}</script>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+  <div class="card-raised card section-gap">
+    <span class="label" data-i18n="common.child_s_age">아이 월령</span>
+    <div class="btn-group" id="ageGroup">
+      <button class="pill-btn" onclick="selectAge(this,'0-3',I18N.t('sleep-calculator.newborn_0_3_months'),45)" data-i18n="sleep-calculator.0_3_months">0~3개월</button>
+      <button class="pill-btn active" onclick="selectAge(this,'4-6',I18N.t('sleep-calculator.infant_4_6_months'),50)" data-i18n="common.4_6_months">4~6개월</button>
+      <button class="pill-btn" onclick="selectAge(this,'7-12',I18N.t('sleep-calculator.late_infant_7_12_months'),60)" data-i18n="sleep-calculator.7_12_months">7~12개월</button>
+      <button class="pill-btn" onclick="selectAge(this,'13-24',I18N.t('sleep-calculator.toddler_1_2_years'),60)" data-i18n="sleep-calculator.1_2_years">1~2세</button>
+      <button class="pill-btn" onclick="selectAge(this,'25+',I18N.t('sleep-calculator.preschool_2_years'),90)" data-i18n="sleep-calculator.2_years">2세 이상</button>
+    </div>
+
+    <div class="section-gap">
+      <span class="label" data-i18n="sleep-calculator.bedtime">취침 시간</span>
+      <div class="time-input-wrap">
+        <input type="time" id="bedtime" value="20:30">
+        <span style="font-size:13px;color:var(--text-muted);" data-i18n="sleep-calculator.if_put_bed">에 재운다면</span>
+      </div>
+    </div>
+
+    <button class="calc-btn" onclick="calculate()" data-i18n="sleep-calculator.calculate_best_wake_up_time">⏰ 최적 기상 시간 계산</button>
+  </div>
+
+  <div id="results" class="hidden section-gap">
+    <h2 class="block-title" data-i18n="sleep-calculator.best_wake_up_times">최적 기상 시간</h2>
+    <div id="cycleList"></div>
+
+    <div class="section-gap">
+      <h2 class="block-title" data-i18n="sleep-calculator.nap_guide_by_age">월령별 낮잠 가이드</h2>
+      <div class="nap-grid" id="napGuide"></div>
+    </div>
+
+    <div class="warn-box section-gap" data-i18n-html="sleep-calculator.sleep_cycle_tip_babies_often">
+      💡 <strong>수면 사이클 팁:</strong> 아기는 한 사이클(45~90분) 끝에서 깨는 경우가 많아요. 낮잠 후 울더라도 5~10분 기다리면 다시 잠들 수 있어요. 밤잠 기상 시간은 표시된 시간 중 "이상적" 표시 기준으로 정해보세요.
+    </div>
+
+    <div class="info-box section-gap">
+      <p data-i18n-html="sleep-calculator.sleep_environment_checklist_room_tempe"><strong>📌 수면 환경 체크리스트</strong><br>
+      실내 온도 20~22°C · 암막 커튼으로 빛 차단 · 화이트노이즈 활용 · 취침 루틴(목욕→수유→잠) 일관성 유지</p>
+    </div>
+  </div>
+
+  <!-- 결과 영역 내 광고 -->
+<div class="ad-slot ad-result">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+       data-ad-slot="4444444444"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>if(typeof CONFIG!=="undefined"){var _ins=document.currentScript.previousElementSibling;_ins.setAttribute("data-ad-client",CONFIG.ADSENSE_CLIENT);_ins.setAttribute("data-ad-slot",CONFIG.AD_SLOTS.IN_RESULT);}</script>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+<div class="disclaimer section-gap" data-i18n="sleep-calculator.every_baby_s_sleep_pattern">
+    아기의 수면 패턴은 개인차가 크며, 위 계산은 일반적인 수면 사이클 이론을 기반으로 합니다. 수면 문제가 지속된다면 소아과 전문의와 상담하세요.
+  </div>
+<!-- 푸터 위 광고 배너 -->
+<div class="ad-slot ad-footer">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+       data-ad-slot="5555555555"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>if(typeof CONFIG!=="undefined"){var _ins=document.currentScript.previousElementSibling;_ins.setAttribute("data-ad-client",CONFIG.ADSENSE_CLIENT);_ins.setAttribute("data-ad-slot",CONFIG.AD_SLOTS.FOOTER);}</script>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+</main>
+<div id="siteFooter" data-footer="tool"></div>
+
+<script src="../assets/js/pages/tools/sleep-calculator.js"></script>
+</body></html>

@@ -1,0 +1,13 @@
+/* 페이지 전용 스타일 — tools/baby-name.html (공통 토큰/컴포넌트는 assets/css/style.css) */
+.name-card{background:var(--bg);border:1.5px solid var(--gray-100);border-radius:var(--radius);padding:1.1rem 1.25rem;margin-bottom:10px;cursor:pointer;transition:.18s;}
+.name-card:hover{border-color:var(--primary);background:var(--primary-light);}
+.name-full{font-size:1.8rem;font-weight:900;color:var(--primary-dark);}
+.name-hanja{font-size:14px;color:var(--text-muted);margin-top:2px;}
+.name-meaning{font-size:13px;color:var(--text-muted);margin-top:.5rem;line-height:1.55;}
+.name-stroke{font-size:11px;background:var(--surface);display:inline-block;padding:2px 8px;border-radius:99px;color:var(--text-muted);margin-top:6px;}
+.vibe-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:8px;}
+.vibe-btn{padding:9px 8px;border-radius:var(--radius-sm);border:1.5px solid var(--gray-200);background:var(--bg);font-size:13px;font-weight:500;cursor:pointer;font-family:inherit;text-align:center;transition:.15s;line-height:1.4;}
+.vibe-btn:hover{border-color:var(--primary);}
+.vibe-btn.active{border-color:var(--primary);background:var(--primary-light);color:var(--primary-dark);font-weight:700;}
+.gender-row{display:flex;gap:10px;margin-bottom:1rem;}
+.pop-badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 6px;border-radius:99px;background:var(--amber-light);color:#7A5710;margin-left:6px;}

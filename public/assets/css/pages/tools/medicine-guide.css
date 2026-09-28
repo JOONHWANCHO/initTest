@@ -1,0 +1,14 @@
+/* 페이지 전용 스타일 — tools/medicine-guide.html (공통 토큰/컴포넌트는 assets/css/style.css) */
+.drug-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.25rem;}
+.drug-tab{padding:7px 14px;border-radius:99px;border:1.5px solid var(--gray-200);background:var(--bg);font-size:13px;font-weight:500;cursor:pointer;font-family:inherit;color:var(--text-muted);transition:.15s;}
+.drug-tab:hover{border-color:var(--primary);color:var(--primary);}
+.drug-tab.active{background:var(--primary);border-color:var(--primary);color:#fff;}
+.drug-panel{display:none;}
+.drug-panel.active{display:block;}
+.drug-header{display:flex;align-items:center;gap:12px;margin-bottom:1rem;}
+.drug-emoji{font-size:2rem;}
+.drug-header h2{font-size:17px;font-weight:800;}
+.point-list{list-style:none;padding:0;}
+.point-list li{display:flex;gap:8px;padding:7px 0;border-bottom:1px solid var(--gray-100);font-size:13px;line-height:1.6;}
+.point-list li:last-child{border-bottom:none;}
+.point-list li::before{content:'✔';color:var(--primary);font-weight:700;flex-shrink:0;margin-top:1px;}

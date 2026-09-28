@@ -1,0 +1,7 @@
+/* 페이지 전용 스타일 — shop.html (공통 토큰/컴포넌트는 assets/css/style.css) */
+/* ══════════════════════════════
+   구글 시트 연동 설정 (선택)
+   CONFIG.SHOP_SHEET_URL을 설정하면 아래 컬럼 구조의 시트에서 상품을 불러옵니다.
+   컬럼: id | section(essentials/ebook) | category | emoji | name | summary | price | discount | link | ageMonth
+   비워두면 이 페이지 하단의 샘플 데이터로 자동 표시됩니다.
+════════════════════════════════ */

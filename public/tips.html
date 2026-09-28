@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://noriya.kr/tips.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://noriya.kr/tips.html">
+<meta property="og:site_name" content="아이로그" data-i18n-attr="content:common.ailog">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://noriya.kr/assets/img/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="육아 꿀팁 모음 | 아이로그" data-i18n-attr="content:tips.parenting_tips_collection_ailog">
+<meta name="twitter:description" content="수면, 이유식, 건강, 발달, 지원금까지 육아 꿀팁을 카테고리별로 모았어요." data-i18n-attr="content:tips.sleep_weaning_health_development_benef">
+<link rel="preconnect" href="https://script.google.com">
+<link rel="preconnect" href="https://pagead2.googlesyndication.com">
+<title data-i18n="tips.parenting_tips_collection_ailog">육아 꿀팁 모음 | 아이로그</title>
+<meta name="description" content="수면, 이유식, 건강, 발달, 지원금까지 육아 꿀팁을 카테고리별로 모았어요." data-i18n-attr="content:tips.sleep_weaning_health_development_benef">
+<meta name="theme-color" content="#4A7C59">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/i18n/i18n.js" data-ns="tips"></script>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/core/analytics.js"></script>
+<script src="assets/js/data/tool-catalog.js" defer></script>
+<script src="assets/js/components/partials.js" defer></script>
+<script src="assets/js/components/nav.js" defer></script>
+<script src="assets/js/data/baby-data.js" defer></script>
+<script src="assets/js/features/baby.js" defer></script>
+<script src="assets/js/components/comments.js" defer></script>
+<link rel="stylesheet" href="assets/css/pages/tips.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://noriya.kr/index.html"}, {"@type": "ListItem", "position": 2, "name": "육아 꿀팁", "item": "https://noriya.kr/tips.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "육아 꿀팁 모음 | 아이로그", "description": "수면, 이유식, 건강, 발달, 지원금까지 육아 꿀팁을 카테고리별로 모았어요.", "url": "https://noriya.kr/tips.html", "inLanguage": "ko"}</script>
+</head>
+<body data-root-prefix="">
+
+<div id="siteHeader"></div>
+
+<!-- 상단 광고 -->
+<div style="max-width:760px;margin:0 auto;padding:.75rem 1rem 0;">
+  <div class="ad-slot ad-top">
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+         data-ad-slot="1111111111"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>if(typeof CONFIG!=="undefined"){var _ins=document.currentScript.previousElementSibling;_ins.setAttribute("data-ad-client",CONFIG.ADSENSE_CLIENT);_ins.setAttribute("data-ad-slot",CONFIG.AD_SLOTS.TOP_BANNER);}</script>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+</div>
+
+<!-- ── LIST VIEW ── -->
+<div id="listView">
+  <div class="list-hero">
+    <div class="eyebrow">Parenting Tips</div>
+    <h1 data-i18n="tips.parenting_tips_collection">육아 꿀팁 모음 🍯</h1>
+    <p data-i18n-html="tips.sleep_weaning_health_development_benef_2">수면·이유식·건강·발달·지원금까지<br>실전 육아에서 바로 써먹는 꿀팁</p>
+  </div>
+
+  <div class="list-main">
+    <!-- 카테고리 필터 -->
+    <div class="cat-filter" id="catFilter"></div>
+
+    <!-- 카드 그리드 -->
+    <div id="listGrid">
+      <div class="loading-state" data-i18n-html="tips.loading_tips"><span class="spin">🍯</span><br><br>꿀팁을 불러오는 중이에요...</div>
+    </div>
+
+    <!-- 더 보기 -->
+    <button class="load-more-btn hidden" id="loadMoreBtn" onclick="loadMore()" data-i18n="common.show_more">더 보기 ↓</button>
+
+    <!-- 미설정 안내 -->
+    <div id="setupGuide" class="hidden">
+      <div class="setup-card" id="setup">
+        <div style="font-size:2.5rem;margin-bottom:.5rem;">📋</div>
+        <h3 data-i18n="tips.google_sheet_integration_needs_be">구글 시트 연동 설정이 필요해요</h3>
+        <p style="font-size:13px;color:var(--text-muted);margin-bottom:.5rem;" data-i18n-html="tips.follow_steps_below_connect_google">아래 단계를 따라 구글 시트와 연결하면<br>꿀팁 콘텐츠가 자동으로 표시돼요.</p>
+        <div class="setup-steps">
+          <div class="setup-step">
+            <div class="step-num">1</div>
+            <div class="step-text" data-i18n-html="tips.create_new_google_sheet_enter">구글 시트를 새로 만들고 첫 행(헤더)에<br>
+              <code>id</code> <code>category</code> <code>emoji</code> <code>title</code> <code>summary</code> <code>content</code> <code>tags</code> <code>date</code><br>
+              순서로 입력하세요.</div>
+          </div>
+          <div class="setup-step">
+            <div class="step-num">2</div>
+            <div class="step-text" data-i18n-html="tips.from_sheet_s_top_menu">시트 상단 메뉴 → <strong>확장 프로그램 → Apps Script</strong> 클릭 후 아래 코드를 붙여넣으세요.</div>
+          </div>
+          <pre class="code-block">function doGet(e) {
+  const sheet = SpreadsheetApp
+    .getActiveSpreadsheet()
+    .getActiveSheet();
+  const rows = sheet.getDataRange().getValues();
+  const headers = rows[0];
+  const tips = rows.slice(1)
+    .filter(r => r[0]) // id 없는 행 제외
+    .map(r => {
+      const obj = {};
+      headers.forEach((h, i) => obj[h] = r[i]);
+      return obj;
+    });
+  return ContentService
+    .createTextOutput(JSON.stringify({ tips }))
+    .setMimeType(ContentService.MimeType.JSON);
+}</pre>
+          <div class="setup-step">
+            <div class="step-num">3</div>
+            <div class="step-text" data-i18n-html="tips.click_deploy_new_deployment_type"><strong>배포 → 새 배포</strong> 클릭 → 유형: <strong>웹 앱</strong> → 액세스: <strong>모든 사용자</strong> → 배포 후 URL 복사</div>
+          </div>
+          <div class="setup-step">
+            <div class="step-num">4</div>
+            <div class="step-text" data-i18n-html="tips.find_line_below_tips_html"><code>tips.html</code> 파일에서 아래 줄을 찾아 URL을 붙여넣으세요.<br>
+              <code>const SHEET_JSON_URL = (typeof CONFIG !== 'undefined') ? CONFIG.SHEET_JSON_URL : '';</code><br>
+              <code>index.html</code> 파일의 같은 줄도 동일하게 변경하세요.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── DETAIL VIEW ── -->
+<div id="detailView" class="hidden">
+  <div class="detail-wrap">
+    <a href="tips.html" class="detail-back" onclick="showList(event)" data-i18n="tips.back_tips">← 꿀팁 목록으로</a>
+
+    <!-- 결과 내 광고 -->
+    <div class="ad-slot ad-result">
+      <ins class="adsbygoogle" style="display:block"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+           data-ad-slot="4444444444"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>if(typeof CONFIG!=="undefined"){var _ins=document.currentScript.previousElementSibling;_ins.setAttribute("data-ad-client",CONFIG.ADSENSE_CLIENT);_ins.setAttribute("data-ad-slot",CONFIG.AD_SLOTS.IN_RESULT);}</script>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+    </div>
+
+    <div id="detailContent">
+      <div class="loading-state" data-i18n-html="tips.loading_tips"><span class="spin">🍯</span><br><br>꿀팁을 불러오는 중이에요...</div>
+    </div>
+
+    <!-- 푸터 위 광고 -->
+    <div class="ad-slot ad-footer" style="margin-top:2rem;">
+      <ins class="adsbygoogle" style="display:block"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+           data-ad-slot="5555555555"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </div>
+</div>
+
+<div id="siteFooter" data-footer="site" data-home-label="홈으로" data-i18n-attr="data-home-label:common.back_home"></div>
+
+<script src="assets/js/pages/tips.js"></script>
+</body>
+</html>

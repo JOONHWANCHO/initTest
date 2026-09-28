@@ -1,0 +1,20 @@
+/* 페이지 전용 스타일 — tools/fever-medicine.html (공통 토큰/컴포넌트는 assets/css/style.css) */
+.med-card{background:var(--bg);border:1.5px solid var(--gray-100);border-radius:var(--radius);padding:1.25rem;margin-bottom:12px;}
+.med-card.tylenol{border-left:4px solid var(--primary);}
+.med-card.brufen{border-left:4px solid var(--amber);}
+.med-name{font-size:15px;font-weight:800;margin-bottom:2px;}
+.med-sub{font-size:12px;color:var(--text-muted);margin-bottom:.75rem;}
+.dose-row{display:flex;align-items:baseline;gap:6px;margin-bottom:4px;}
+.dose-ml{font-size:2rem;font-weight:900;color:var(--primary-dark);}
+.med-card.brufen .dose-ml{color:#7A5710;}
+.dose-unit{font-size:14px;color:var(--text-muted);}
+.dose-range{font-size:12px;color:var(--text-muted);}
+.interval-badge{display:inline-block;background:var(--primary-light);color:var(--primary-dark);font-size:12px;font-weight:700;padding:3px 10px;border-radius:99px;margin-top:6px;}
+.med-card.brufen .interval-badge{background:var(--amber-light);color:#7A5710;}
+.timer-section{background:var(--surface);border-radius:var(--radius-sm);padding:1rem;margin-top:.75rem;}
+.timer-section .tl{font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text-muted);margin-bottom:.5rem;}
+.cross-timer{display:flex;align-items:center;gap:14px;}
+.ct-controls{flex:1;}
+.ct-btn{padding:9px;border:1.5px solid var(--gray-200);border-radius:var(--radius-sm);font-size:12px;font-weight:700;cursor:pointer;background:var(--bg);font-family:inherit;color:var(--text);transition:.15s;}
+.ct-btn:hover{border-color:var(--primary);color:var(--primary);}
+.ct-display{font-size:12px;color:var(--text-muted);margin-top:6px;min-height:18px;}

@@ -1,0 +1,9 @@
+/* 페이지 전용 스타일 — tools/weaning-checker.html (공통 토큰/컴포넌트는 assets/css/style.css) */
+.section-row{margin-top:1.25rem;}
+.section-row h3{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--text-muted);margin-bottom:.5rem;display:flex;align-items:center;gap:6px;}
+.section-row h3 .dot{width:8px;height:8px;border-radius:50%;display:inline-block;}
+.count-tag{margin-left:auto;font-size:11px;font-weight:600;color:var(--text-muted);}
+.texture-box{background:var(--surface);border-radius:var(--radius-sm);padding:1rem 1.1rem;margin-top:1rem;}
+.texture-row{display:flex;gap:10px;margin-bottom:5px;font-size:13px;}
+.texture-row .tk{font-weight:700;color:var(--primary);min-width:55px;}
+.texture-row .tv{color:var(--text-muted);}

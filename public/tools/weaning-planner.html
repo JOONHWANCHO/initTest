@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://noriya.kr/tools/weaning-planner.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://noriya.kr/tools/weaning-planner.html">
+<meta property="og:site_name" content="아이로그" data-i18n-attr="content:common.ailog">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://noriya.kr/assets/img/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="이유식 스케줄 플래너 — 주간 이유식 계획표 | 아이로그" data-i18n-attr="content:weaning-planner.weaning_schedule_planner_weekly_weanin">
+<meta name="twitter:description" content="아이 월령을 선택하면 주간 이유식 스케줄을 자동으로 만들어드려요. 인쇄도 가능해요." data-i18n-attr="content:weaning-planner.choose_child_s_age_automatically">
+<link rel="preconnect" href="https://script.google.com">
+<link rel="preconnect" href="https://pagead2.googlesyndication.com">
+<title data-i18n="weaning-planner.weaning_schedule_planner_weekly_weanin">이유식 스케줄 플래너 — 주간 이유식 계획표 | 아이로그</title>
+<meta name="description" content="아이 월령을 선택하면 주간 이유식 스케줄을 자동으로 만들어드려요. 인쇄도 가능해요." data-i18n-attr="content:weaning-planner.choose_child_s_age_automatically">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script src="../assets/i18n/i18n.js" data-ns="weaning-planner"></script>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/core/analytics.js"></script>
+<script src="../assets/js/data/tool-catalog.js" defer></script>
+<script src="../assets/js/components/partials.js" defer></script>
+<script src="../assets/js/components/nav.js" defer></script>
+<script src="../assets/js/data/baby-data.js" defer></script>
+<script src="../assets/js/features/baby.js" defer></script>
+<link rel="stylesheet" href="../assets/css/pages/tools/weaning-planner.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://noriya.kr/index.html"}, {"@type": "ListItem", "position": 2, "name": "이유식 · 영양", "item": "https://noriya.kr/index.html#cat-이유식영양"}, {"@type": "ListItem", "position": 3, "name": "이유식 스케줄 플래너", "item": "https://noriya.kr/tools/weaning-planner.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "이유식 스케줄 플래너 — 주간 이유식 계획표 | 아이로그", "description": "아이 월령을 선택하면 주간 이유식 스케줄을 자동으로 만들어드려요. 인쇄도 가능해요.", "url": "https://noriya.kr/tools/weaning-planner.html", "applicationCategory": "LifestyleApplication", "operatingSystem": "Web", "inLanguage": "ko", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"}}</script>
+</head>
+<body data-root-prefix="../">
+<div id="siteHeader"></div>
+<nav class="breadcrumb" aria-label="breadcrumb">
+  <a href="../index.html" data-i18n="common.home_2">홈</a>
+  <span class="bc-sep">›</span>
+  <a href="../index.html#cat-이유식영양" data-i18n="common.weaning_nutrition">이유식 · 영양</a>
+  <span class="bc-sep">›</span>
+  <span class="bc-current" aria-current="page" data-i18n="common.weaning_schedule_planner">이유식 스케줄 플래너</span>
+</nav>
+<div class="tool-hero">
+  <div class="cat-tag" data-i18n="common.weaning_nutrition">이유식 · 영양</div>
+  <h1 data-i18n="common.weaning_schedule_planner">이유식 스케줄 플래너</h1>
+  <p data-i18n-html="weaning-planner.choose_age_we_ll_automatically">월령을 선택하면 하루 식사 시간과 이유식 구성을<br>주간 계획표로 자동 생성해드려요.</p>
+</div>
+<main>
+  <div class="ad-slot ad-top">
+    <ins class="adsbygoogle" style="display:block" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>if(typeof CONFIG!=='undefined'){var i=document.currentScript.previousElementSibling;i.setAttribute('data-ad-client',CONFIG.ADSENSE_CLIENT);i.setAttribute('data-ad-slot',CONFIG.AD_SLOTS.TOP_BANNER);}(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+  <div class="card section-gap">
+    <span class="label" data-i18n="common.child_s_age">아이 월령</span>
+    <div class="btn-group" id="monthBtns"></div>
+    <div class="input-group section-gap" style="max-width:200px;">
+      <label data-i18n="weaning-planner.first_feeding_time">첫 번째 수유 시간</label>
+      <input type="time" id="firstFeed" value="07:00">
+    </div>
+    <button class="calc-btn" onclick="generate()" data-i18n="weaning-planner.create_schedule">📅 스케줄 생성하기</button>
+  </div>
+
+  <div id="result" class="hidden section-gap">
+    <div class="card">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:.75rem;">
+        <h2 class="block-title" style="margin:0;" id="scheduleTitle"></h2>
+        <button class="print-btn" onclick="window.print()" data-i18n="weaning-planner.print">🖨️ 인쇄하기</button>
+      </div>
+      <div style="overflow-x:auto;">
+        <table class="schedule-table" id="scheduleTable"></table>
+      </div>
+    </div>
+
+    <div class="info-box section-gap">
+      <p id="stageNote"></p>
+    </div>
+
+    <div class="warn-box section-gap" data-i18n-html="weaning-planner.schedule_tip_first_2_3">
+      💡 <strong>스케줄 적용 팁:</strong> 처음 2~3일은 기존 수유 패턴을 유지하면서 이유식을 한 끼만 추가해보세요. 아이가 적응하면 점차 횟수를 늘려가세요.
+    </div>
+
+    <div class="ad-slot ad-result">
+      <ins class="adsbygoogle" style="display:block" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>if(typeof CONFIG!=='undefined'){var i=document.currentScript.previousElementSibling;i.setAttribute('data-ad-client',CONFIG.ADSENSE_CLIENT);i.setAttribute('data-ad-slot',CONFIG.AD_SLOTS.IN_RESULT);}(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+    </div>
+  </div>
+
+  <div class="disclaimer section-gap" data-i18n="weaning-planner.schedule_general_guideline_adjust_chil">스케줄은 일반적인 가이드라인이며 아이의 리듬에 따라 조정하세요.</div>
+</main>
+<div id="siteFooter" data-footer="tool"></div>
+<script src="../assets/js/pages/tools/weaning-planner.js"></script>
+</body></html>

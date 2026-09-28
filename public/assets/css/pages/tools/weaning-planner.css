@@ -1,0 +1,12 @@
+/* 페이지 전용 스타일 — tools/weaning-planner.html (공통 토큰/컴포넌트는 assets/css/style.css) */
+.schedule-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:.75rem;}
+.schedule-table th{background:var(--primary);color:#fff;padding:8px 6px;text-align:center;font-size:11px;font-weight:700;}
+.schedule-table td{padding:8px 6px;border:1px solid var(--gray-100);text-align:center;vertical-align:top;line-height:1.5;}
+.schedule-table tr:nth-child(even) td{background:var(--gray-50);}
+.meal-cell{font-size:11px;color:var(--text);}
+.meal-cell .meal-name{font-weight:700;color:var(--primary-dark);}
+.meal-cell .meal-amount{color:var(--text-muted);}
+.time-cell{font-weight:700;color:var(--text-muted);font-size:11px;white-space:nowrap;}
+.print-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border:1.5px solid var(--gray-200);border-radius:99px;background:var(--bg);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;color:var(--text);transition:.15s;margin-top:1rem;}
+.print-btn:hover{border-color:var(--primary);color:var(--primary);}
+@media print{.site-nav,.tool-hero,.ad-slot,.print-btn,.disclaimer,footer{display:none!important;}.card{box-shadow:none!important;border:none!important;}}

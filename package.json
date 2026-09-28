@@ -1,0 +1,24 @@
+{
+  "name": "noriya",
+  "version": "1.0.0",
+  "private": true,
+  "description": "아이로그(noriya.kr) — 육아 계산기·놀이·꿀팁 정적 사이트 (한국어/English/日本語)",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "dev": "node scripts/dev-server.mjs",
+    "check": "npm run check:syntax && npm run check:i18n && npm run check:pages && npm run check:links",
+    "check:syntax": "node scripts/check-syntax.mjs",
+    "check:i18n": "node scripts/check-i18n.mjs",
+    "check:pages": "node scripts/check-pages.mjs",
+    "check:links": "node scripts/check-links.mjs",
+    "test:e2e": "node tests/e2e/smoke.mjs",
+    "new:tool": "node scripts/new-tool.mjs",
+    "i18n:scaffold": "node scripts/i18n-scaffold.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.56.0"
+  }
+}

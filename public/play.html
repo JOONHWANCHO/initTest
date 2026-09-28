@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://noriya.kr/play.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://noriya.kr/play.html">
+<meta property="og:site_name" content="아이로그" data-i18n-attr="content:common.ailog">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://noriya.kr/assets/img/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="놀이 꿀팁 모음 | 아이로그" data-i18n-attr="content:play.play_tips_collection">
+<meta name="twitter:description" content="실내놀이, 실외놀이, 미술, 음악, 교육까지 아이가 좋아할 액티비티를 카테고리별로 모았어요." data-i18n-attr="content:play.indoor_outdoor_play_art_music">
+<link rel="preconnect" href="https://script.google.com">
+<link rel="preconnect" href="https://pagead2.googlesyndication.com">
+<link rel="preconnect" href="https://dapi.kakao.com">
+<title data-i18n="play.play_tips_collection">놀이 꿀팁 모음 | 아이로그</title>
+<meta name="description" content="실내놀이, 실외놀이, 미술, 음악, 교육까지 아이가 좋아할 액티비티를 카테고리별로 모았어요." data-i18n-attr="content:play.indoor_outdoor_play_art_music">
+<meta name="theme-color" content="#4A7C59">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/i18n/i18n.js" data-ns="play"></script>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/core/analytics.js"></script>
+<script src="assets/js/data/tool-catalog.js" defer></script>
+<script src="assets/js/components/partials.js" defer></script>
+<script src="assets/js/components/nav.js" defer></script>
+<script src="assets/js/data/baby-data.js" defer></script>
+<script src="assets/js/features/baby.js" defer></script>
+<script src="assets/js/components/comments.js" defer></script>
+<!-- 카카오맵 SDK는 여기서 미리 로드하지 않습니다.
+     config.js의 CONFIG.KAKAO_MAP_KEY로 ensureKakaoSDK()가 필요할 때 동적으로 로드합니다.
+     (예전엔 여기서도 다른 하드코딩된 키로 중복 로드하고 있었는데, config.js의 키와
+     달라서 카카오 개발자센터에 도메인을 등록해도 반영되지 않는 문제가 있었습니다.) -->
+<link rel="stylesheet" href="assets/css/pages/play.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://noriya.kr/index.html"}, {"@type": "ListItem", "position": 2, "name": "놀이 추천", "item": "https://noriya.kr/play.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "놀이 꿀팁 모음 | 아이로그", "description": "실내놀이, 실외놀이, 미술, 음악, 교육까지 아이가 좋아할 액티비티를 카테고리별로 모았어요.", "url": "https://noriya.kr/play.html", "inLanguage": "ko"}</script>
+</head>
+<body data-root-prefix="">
+
+<div id="siteHeader"></div>
+  
+  <div class="play-hero">
+    <div class="eyebrow">Kids Activity</div>
+    <h1 data-i18n="play.recommended_activities_kids">아이 액티비티 추천 🎪</h1>
+    <p data-i18n-html="play.indoor_outdoor_play_art_music_2">실내놀이·실외놀이·미술·음악·교육까지<br>아이가 좋아할 액티비티를 모았어요</p>
+  </div>
+
+  <!-- 상단 광고 -->
+  <div style="max-width:760px;margin:0 auto;padding:.75rem 1rem 0;">
+    <div class="ad-slot ad-top">
+      <ins class="adsbygoogle" style="display:block"
+           data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>
+        if(typeof CONFIG!=='undefined'){
+          var ins=document.currentScript.previousElementSibling;
+          ins.setAttribute('data-ad-client', CONFIG.ADSENSE_CLIENT);
+          ins.setAttribute('data-ad-slot', CONFIG.AD_SLOTS.TOP_BANNER);
+        }
+        (adsbygoogle=window.adsbygoogle||[]).push({});
+      </script>
+    </div>
+  </div>
+  
+  <!-- ── LIST VIEW ── -->
+  <div id="listView">
+
+    <!-- ── 빠른 섹션: 랭킹 / 연령별 / 실시간 추천 / 최저가 ── -->
+    <div class="quick-sections" id="quickSections">
+
+      <!-- 랭킹 -->
+      <section class="qs-block">
+        <div class="qs-head">
+          <h2 data-i18n="play.live_ranking">🏆 실시간 랭킹</h2>
+          <span class="qs-sub" data-i18n="play.by_view_count">조회수 기준</span>
+        </div>
+        <div class="ranking-list" id="rankingList"></div>
+      </section>
+
+      <!-- 연령별 -->
+      <section class="qs-block">
+        <div class="qs-head">
+          <h2 data-i18n="play.recommended_by_age">👶 연령별 추천</h2>
+        </div>
+        <div class="age-filter" id="ageFilter"></div>
+        <div class="age-grid" id="ageGrid"></div>
+      </section>
+
+      <!-- 실시간 추천 -->
+      <section class="qs-block">
+        <div class="qs-head">
+          <h2 data-i18n-html="play.live_picks"><span class="live-pulse"></span>실시간 추천</h2>
+          <button class="qs-refresh" onclick="refreshLiveRecs()" data-i18n-html="play.refresh"><span class="qs-refresh-icon">🔄</span> 새로고침</button>
+        </div>
+        <div class="live-grid" id="liveGrid"></div>
+      </section>
+
+      <!-- 최저가 -->
+      <section class="qs-block">
+        <div class="qs-head">
+          <h2 data-i18n="play.lowest_price_activities">💰 최저가 액티비티</h2>
+        </div>
+        <div class="price-list" id="priceList"></div>
+      </section>
+
+      <!-- 내 주변 추천 (카카오맵) -->
+      <section class="qs-block near-map-section">
+        <h3 class="map-section-title" data-i18n-html="play.this_week_s_top_5">📍 이번 주 <span>추천 액티비티 TOP 5</span></h3>
+        <div id="near-map"></div>
+        <div id="map-spots-slider-container">
+          <div id="map-spots-slider">
+            <div class="map-loading-msg" data-i18n="play.loading_recommended_places">추천 장소를 불러오고 있습니다...</div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  
+    <div class="play-main">
+      <div class="cat-filter" id="playCatFilter"></div>
+      <div id="listGrid">
+        <div class="loading-state" data-i18n-html="play.loading_activities"><span class="spin">🎪</span><br><br>액티비티를 불러오는 중이에요...</div>
+      </div>
+      <button class="load-more-btn hidden" id="loadMoreBtn" onclick="loadMore()" data-i18n="common.show_more">더 보기 ↓</button>
+    </div>
+  </div>
+  
+  <!-- ── DETAIL VIEW ── -->
+  <div id="detailView" class="hidden">
+    <div class="detail-wrap">
+      <a href="play.html" class="detail-back" onclick="showList(event)" data-i18n="play.back_activities">← 액티비티 목록으로</a>
+  
+      <!-- 인라인 광고 -->
+      <div class="ad-slot ad-result">
+        <ins class="adsbygoogle" style="display:block"
+             data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+          if(typeof CONFIG!=='undefined'){
+            var ins=document.currentScript.previousElementSibling;
+            ins.setAttribute('data-ad-client', CONFIG.ADSENSE_CLIENT);
+            ins.setAttribute('data-ad-slot', CONFIG.AD_SLOTS.IN_RESULT);
+          }
+          (adsbygoogle=window.adsbygoogle||[]).push({});
+        </script>
+      </div>
+  
+      <div id="detailContent">
+        <div class="loading-state" data-i18n-html="play.loading"><span class="spin">🎪</span><br><br>불러오는 중...</div>
+      </div>
+  
+      <div class="detail-spacer"></div>
+    </div>
+  </div>
+  
+  <!-- ── 하트 + 예약 버튼 바 ── -->
+  <div class="action-bar hidden" id="actionBar">
+    <div class="container">
+      <button class="heart-btn" id="heartBtn" onclick="toggleHeart()" title="찜하기" data-i18n-attr="title:play.save">🤍</button>
+      <a class="book-btn" id="bookBtn" href="" target="_blank" rel="noopener" data-i18n="play.book_instantly_real_time">
+        ⚡ 실시간 즉시 예약하기
+      </a>
+    </div>
+  </div>
+  
+  <div id="siteFooter" data-footer="site" data-home-label="홈으로" data-i18n-attr="data-home-label:common.back_home"></div>
+  
+  <script src="assets/js/pages/play.js"></script>
+  </body>
+  </html>

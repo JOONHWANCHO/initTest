@@ -1,0 +1,16 @@
+/* 페이지 전용 스타일 — tools/subsidy-calculator.html (공통 토큰/컴포넌트는 assets/css/style.css) */
+.subsidy-card{background:var(--bg);border:1.5px solid var(--gray-100);border-radius:var(--radius);padding:1.1rem 1.25rem;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;}
+.subsidy-card.active{border-color:var(--primary);background:var(--primary-light);}
+.subsidy-card.inactive{opacity:.5;}
+.sc-left .sc-name{font-size:14px;font-weight:700;}
+.sc-left .sc-desc{font-size:12px;color:var(--text-muted);margin-top:2px;}
+.sc-right .sc-amount{font-size:1.2rem;font-weight:900;color:var(--primary-dark);text-align:right;}
+.sc-right .sc-period{font-size:11px;color:var(--text-muted);text-align:right;}
+.total-box{background:var(--primary);color:#fff;border-radius:var(--radius);padding:1.5rem;text-align:center;margin-top:1rem;}
+.total-box .tl{font-size:12px;opacity:.75;margin-bottom:.25rem;}
+.total-box .tv{font-size:2.5rem;font-weight:900;}
+.total-box .ts{font-size:13px;opacity:.8;margin-top:.25rem;}
+.progress-pill{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:99px;font-size:12px;font-weight:700;}
+.pill-ok{background:var(--primary-light);color:var(--primary-dark);}
+.pill-done{background:var(--gray-100);color:var(--gray-500);}
+.pill-future{background:var(--blue-light);color:var(--blue);}

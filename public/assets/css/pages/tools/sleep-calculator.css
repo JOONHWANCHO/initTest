@@ -1,0 +1,16 @@
+/* 페이지 전용 스타일 — tools/sleep-calculator.html (공통 토큰/컴포넌트는 assets/css/style.css) */
+.time-input-wrap{display:flex;align-items:center;gap:12px;margin-top:.5rem;}
+.time-input-wrap input{max-width:140px;font-size:1.4rem;font-weight:700;text-align:center;padding:10px;}
+.cycle-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--gray-100);}
+.cycle-row:last-child{border-bottom:none;}
+.cycle-num{width:28px;height:28px;border-radius:50%;background:var(--primary-light);color:var(--primary-dark);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.cycle-time{font-size:1.2rem;font-weight:800;color:var(--text);min-width:70px;}
+.cycle-label{font-size:13px;color:var(--text-muted);}
+.cycle-badge{margin-left:auto;font-size:11px;font-weight:700;padding:3px 9px;border-radius:99px;}
+.badge-ideal{background:var(--primary-light);color:var(--primary-dark);}
+.badge-ok{background:var(--amber-light);color:#7A5710;}
+.nap-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-top:.75rem;}
+.nap-card{background:var(--surface);border-radius:var(--radius-sm);padding:.875rem;text-align:center;}
+.nap-card .nap-age{font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;margin-bottom:4px;}
+.nap-card .nap-count{font-size:1.5rem;font-weight:800;color:var(--primary-dark);}
+.nap-card .nap-total{font-size:12px;color:var(--text-muted);margin-top:2px;}

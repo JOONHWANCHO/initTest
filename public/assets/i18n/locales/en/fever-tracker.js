@@ -1,0 +1,26 @@
+/* English — fever-tracker */
+I18N.add("en", "fever-tracker", {
+  "fever-tracker.temperature_log_fever_medicine_alterna": "Temperature Log & Fever Medicine Alternating Timer | Ailog",
+  "fever-tracker.log_child_s_temperature_manage": "Log your child's temperature and manage the Tylenol/Brufen alternating timer.",
+  "fever-tracker.temperature_log_alternating_timer": "Temperature Log & Alternating Timer",
+  "fever-tracker.log_temperature_changes_manage_tylenol": "Log temperature changes and manage the Tylenol/Brufen<br>alternating timer on a single screen.",
+  "fever-tracker.temperature_log": "Temperature Log",
+  "fever-tracker.temperature_c": "Temperature (°C)",
+  "fever-tracker.measurement_method": "Measurement Method",
+  "fever-tracker.rectal_most_accurate": "Rectal (most accurate)",
+  "fever-tracker.armpit": "Armpit",
+  "fever-tracker.ear_eardrum": "Ear (eardrum)",
+  "fever-tracker.forehead_infrared": "Forehead (infrared)",
+  "fever-tracker.log_temperature": "📌 Log Temperature",
+  "fever-tracker.fever_medicine_alternating_timer": "Fever Medicine Alternating Timer",
+  "fever-tracker.tylenol": "🟢 Tylenol",
+  "fever-tracker.not_given": "Not given",
+  "fever-tracker.given_now": "Given now",
+  "fever-tracker.brufen": "🟠 Brufen",
+  "fever-tracker.temperature_log_list": "Temperature Log List",
+  "fever-tracker.correction_by_method_armpit_0": "💡 <strong>Correction by method:</strong> Armpit +0.5°C = actual temperature. Forehead (infrared) readings can be affected by the environment and come out 0.3–0.5°C lower.",
+  "fever-tracker.this_timer_reference_only_before": "This timer is for reference only. Before giving any medication, always follow the package insert and pediatric guidance.",
+  "fever-tracker.please_enter_valid_temperature_35": "Please enter a valid temperature (35–42°C).",
+  "fever-tracker.dose_available_now": "✅ Dose available now",
+  "fever-tracker.given": "Given at {fmtTime}"
+});

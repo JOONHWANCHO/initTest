@@ -1,0 +1,26 @@
+/* 日本語 — fever-tracker */
+I18N.add("ja", "fever-tracker", {
+  "fever-tracker.temperature_log_fever_medicine_alterna": "体温記録＆解熱剤交互投与タイマー | アイログ",
+  "fever-tracker.log_child_s_temperature_manage": "お子さまの体温を記録し、タイレノール・ブルフェンの交互投与タイマーを管理しましょう。",
+  "fever-tracker.temperature_log_alternating_timer": "体温記録＆交互投与タイマー",
+  "fever-tracker.log_temperature_changes_manage_tylenol": "体温の変化を記録し、タイレノール・ブルフェンの交互投与<br>タイマーを1つの画面で管理しましょう。",
+  "fever-tracker.temperature_log": "体温記録",
+  "fever-tracker.temperature_c": "体温(°C)",
+  "fever-tracker.measurement_method": "測定方法",
+  "fever-tracker.rectal_most_accurate": "直腸（最も正確）",
+  "fever-tracker.armpit": "腋の下",
+  "fever-tracker.ear_eardrum": "耳（鼓膜）",
+  "fever-tracker.forehead_infrared": "額（赤外線）",
+  "fever-tracker.log_temperature": "📌 体温を記録する",
+  "fever-tracker.fever_medicine_alternating_timer": "解熱剤交互投与タイマー",
+  "fever-tracker.tylenol": "🟢 タイレノール",
+  "fever-tracker.not_given": "未投与",
+  "fever-tracker.given_now": "今飲ませた",
+  "fever-tracker.brufen": "🟠 ブルフェン",
+  "fever-tracker.temperature_log_list": "体温記録一覧",
+  "fever-tracker.correction_by_method_armpit_0": "💡 <strong>測定方法別の補正値：</strong>腋の下＋0.5°C＝実際の体温。額（赤外線）は環境の影響を受け、0.3〜0.5°C低く出ることがあります。",
+  "fever-tracker.this_timer_reference_only_before": "このタイマーは参考用です。薬を投与する前に、必ず添付文書と小児科の指示に従ってください。",
+  "fever-tracker.please_enter_valid_temperature_35": "体温を正しく入力してください（35〜42°C）。",
+  "fever-tracker.dose_available_now": "✅ 今すぐ投与可能",
+  "fever-tracker.given": "{fmtTime} に投与"
+});

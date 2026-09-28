@@ -1,0 +1,20 @@
+/* 페이지 전용 스타일 — tools/pregnancy-week.html (공통 토큰/컴포넌트는 assets/css/style.css) */
+.due-date-big{font-size:2rem;font-weight:900;color:var(--primary-dark);}
+.week-card{background:var(--surface);border-radius:var(--radius-sm);padding:1rem 1.1rem;}
+.week-num{font-size:2.5rem;font-weight:900;color:var(--primary-dark);line-height:1;}
+.week-sub{font-size:12px;color:var(--text-muted);margin-top:2px;}
+.trimester-bar{display:flex;height:8px;border-radius:99px;overflow:hidden;margin:1rem 0 .5rem;}
+.t1{background:#CFE6D9;flex:12;}
+.t2{background:#4A7C59;flex:14;}
+.t3{background:#33573F;flex:14;}
+.t-labels{display:flex;font-size:10px;color:var(--text-muted);}
+.t-labels span{flex:1;text-align:center;}
+.progress-current{position:relative;}
+.milestone-list{list-style:none;padding:0;}
+.milestone-list li{padding:8px 0;border-bottom:1px solid var(--gray-100);font-size:13px;color:var(--text-muted);display:flex;gap:8px;}
+.milestone-list li:last-child{border-bottom:none;}
+.milestone-list li .mw{font-weight:700;color:var(--primary-dark);min-width:40px;}
+.fetal-size{display:flex;align-items:center;gap:12px;padding:1rem;background:var(--surface);border-radius:var(--radius-sm);}
+.fetal-size .fs-emoji{font-size:2.5rem;}
+.fetal-size .fs-info .fs-size{font-size:1.1rem;font-weight:800;color:var(--primary-dark);}
+.fetal-size .fs-info .fs-label{font-size:12px;color:var(--text-muted);}

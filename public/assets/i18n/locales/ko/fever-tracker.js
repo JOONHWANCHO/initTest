@@ -1,0 +1,26 @@
+/* 한국어 — fever-tracker */
+I18N.add("ko", "fever-tracker", {
+  "fever-tracker.temperature_log_fever_medicine_alterna": "체온 기록 & 해열제 교차 타이머 | 아이로그",
+  "fever-tracker.log_child_s_temperature_manage": "아이 체온을 기록하고 타이레놀·부루펜 교차 복용 타이머를 관리하세요.",
+  "fever-tracker.temperature_log_alternating_timer": "체온 기록 & 교차 타이머",
+  "fever-tracker.log_temperature_changes_manage_tylenol": "체온 변화를 기록하고 타이레놀·부루펜 교차 복용<br>타이머를 한 화면에서 관리하세요.",
+  "fever-tracker.temperature_log": "체온 기록",
+  "fever-tracker.temperature_c": "체온 (°C)",
+  "fever-tracker.measurement_method": "측정 방법",
+  "fever-tracker.rectal_most_accurate": "직장(가장 정확)",
+  "fever-tracker.armpit": "겨드랑이",
+  "fever-tracker.ear_eardrum": "귀(고막)",
+  "fever-tracker.forehead_infrared": "이마(적외선)",
+  "fever-tracker.log_temperature": "📌 체온 기록하기",
+  "fever-tracker.fever_medicine_alternating_timer": "해열제 교차 타이머",
+  "fever-tracker.tylenol": "🟢 타이레놀",
+  "fever-tracker.not_given": "미투약",
+  "fever-tracker.given_now": "지금 먹임",
+  "fever-tracker.brufen": "🟠 부루펜",
+  "fever-tracker.temperature_log_list": "체온 기록 목록",
+  "fever-tracker.correction_by_method_armpit_0": "💡 <strong>측정 방법별 보정값:</strong> 겨드랑이 +0.5°C = 실제 체온. 이마(적외선)는 환경 영향을 받아 0.3~0.5°C 낮게 나올 수 있어요.",
+  "fever-tracker.this_timer_reference_only_before": "이 타이머는 참고용이며 의약품 투약 전 반드시 약 설명서와 소아과 지침을 따르세요.",
+  "fever-tracker.please_enter_valid_temperature_35": "체온을 올바르게 입력해주세요 (35~42°C).",
+  "fever-tracker.dose_available_now": "✅ 지금 투약 가능",
+  "fever-tracker.given": "{fmtTime} 투약함"
+});

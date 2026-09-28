@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://noriya.kr/growth.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://noriya.kr/growth.html">
+<meta property="og:site_name" content="아이로그" data-i18n-attr="content:common.ailog">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://noriya.kr/assets/img/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="내 아이 성장 기록 & 예방접종 D-day | 아이로그" data-i18n-attr="content:growth.my_child_s_growth_log">
+<meta name="twitter:description" content="우리 아이 정보를 등록하면 나이·예방접종 D-day·성장 그래프가 자동으로 계산돼요. 매번 다시 입력할 필요 없이 모든 도구에 자동 반영됩니다." data-i18n-attr="content:growth.register_child_s_info_automatically">
+<link rel="preconnect" href="https://script.google.com">
+<link rel="preconnect" href="https://pagead2.googlesyndication.com">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+<title data-i18n="growth.my_child_s_growth_log">내 아이 성장 기록 & 예방접종 D-day | 아이로그</title>
+<meta name="description" content="우리 아이 정보를 등록하면 나이·예방접종 D-day·성장 그래프가 자동으로 계산돼요. 매번 다시 입력할 필요 없이 모든 도구에 자동 반영됩니다." data-i18n-attr="content:growth.register_child_s_info_automatically">
+<meta name="theme-color" content="#4A7C59">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/i18n/i18n.js" data-ns="growth"></script>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/core/analytics.js"></script>
+<script src="assets/js/data/tool-catalog.js" defer></script>
+<script src="assets/js/components/partials.js" defer></script>
+<script src="assets/js/components/nav.js" defer></script>
+<script src="assets/js/data/baby-data.js" defer></script>
+<script src="assets/js/features/baby.js" defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://noriya.kr/index.html"}, {"@type": "ListItem", "position": 2, "name": "내 아이 성장 기록", "item": "https://noriya.kr/growth.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "내 아이 성장 기록 & 예방접종 D-day", "description": "우리 아이 정보를 등록하면 나이·예방접종 D-day·성장 그래프가 자동으로 계산돼요.", "url": "https://noriya.kr/growth.html", "applicationCategory": "LifestyleApplication", "operatingSystem": "Web", "inLanguage": "ko", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"}}</script>
+<link rel="stylesheet" href="assets/css/pages/growth.css">
+</head>
+<body data-root-prefix="">
+<div id="siteHeader"></div>
+
+<div class="page-hero">
+  <div class="eyebrow">My Baby</div>
+  <h1 data-i18n="growth.my_child_s_growth_log_2">내 아이 성장 기록</h1>
+  <p data-i18n="growth.register_birth_date_once_we">생년월일 한 번만 등록하면 나이·예방접종 D-day·이유식 시기를 자동으로 계산하고, 18개 도구에도 바로 반영돼요.</p>
+</div>
+
+<div class="growth-wrap">
+
+  <!-- ── 프로필 ─────────────────────────── -->
+  <div class="card-raised" id="profileSection">
+    <div class="section-title" data-i18n-html="growth.child_info"><span class="st-icon">👶</span>아이 정보</div>
+    <div id="profileDisplay"></div>
+    <form id="profileForm">
+      <div class="profile-form-row">
+        <div class="input-group">
+          <label data-i18n="growth.name_nickname_ok">이름 (별명 가능)</label>
+          <input type="text" id="pfName" placeholder="예: 민준" data-i18n-attr="placeholder:growth.e_g_minjun">
+        </div>
+        <div class="input-group">
+          <label data-i18n="growth.birth_date_due_date">생년월일 · 출산 예정일</label>
+          <input type="date" id="pfBirthdate">
+        </div>
+      </div>
+      <div class="profile-form-row full">
+        <div class="input-group">
+          <label data-i18n="growth.gender_optional">성별 (선택)</label>
+          <div class="btn-group" id="pfGenderGroup">
+            <button type="button" class="pill-btn active" data-g="" data-i18n="growth.prefer_not_say">선택 안 함</button>
+            <button type="button" class="pill-btn" data-g="M" data-i18n="common.boy">남아</button>
+            <button type="button" class="pill-btn" data-g="F" data-i18n="common.girl">여아</button>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="calc-btn" id="profileSaveBtn" data-i18n="growth.save">저장하기</button>
+    </form>
+    <div class="privacy-note" data-i18n="growth.info_enter_stored_only_this">🔒 입력한 정보는 이 브라우저(기기)에만 저장되며, 서버로 전송되거나 외부에 공개되지 않아요.</div>
+  </div>
+
+  <!-- ── 오늘 요약 (프로필 있을 때만) ─────── -->
+  <div id="todaySection" class="section-gap hidden">
+    <div class="section-title" data-i18n-html="growth.child_today"><span class="st-icon">📅</span>오늘의 우리 아이</div>
+    <div class="today-grid">
+      <div class="today-card">
+        <div class="tc-label" data-i18n="growth.age">🍼 나이</div>
+        <div class="tc-value" id="tcAge">-</div>
+        <div class="tc-sub" id="tcAgeSub"></div>
+      </div>
+      <div class="today-card">
+        <div class="tc-label" data-i18n="growth.weaning_stage">🥣 이유식 단계</div>
+        <div class="tc-value" id="tcWeaning">-</div>
+        <div class="tc-sub" id="tcWeaningSub"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 연속방문 스트릭 & 뱃지 ───────────── -->
+  <div class="section-gap">
+    <div class="section-title" data-i18n-html="growth.visit_streak_badges"><span class="st-icon">🔥</span>연속 방문 &amp; 뱃지</div>
+    <div class="streak-strip">
+      <span class="ss-emoji">🔥</span>
+      <div>
+        <div class="ss-num" id="streakCurrent" data-i18n="growth.0_day_visit_streak">0일 연속 방문</div>
+        <div class="ss-label" id="streakSub" data-i18n="growth.total_visits_0_best_streak">누적 방문 0회 · 최장 기록 0일</div>
+      </div>
+    </div>
+    <div class="badge-grid" id="badgeGrid"></div>
+  </div>
+
+  <!-- ── 예방접종 D-day (프로필 있을 때만) ── -->
+  <div id="vaccineSection" class="section-gap hidden">
+    <div class="section-title" data-i18n-html="growth.vaccination_d_day"><span class="st-icon">💉</span>예방접종 D-day</div>
+    <div class="section-desc" data-i18n="growth.simplified_reference_based_korea_disea">질병관리청 국가필수예방접종 표준 일정을 간소화한 참고용 정보예요. 정확한 접종 시기와 종류는 소아청소년과 진료 시 꼭 확인하세요.</div>
+    <div class="vac-list" id="vacUpcoming"></div>
+    <details class="vac-done-details">
+      <summary id="vacDoneSummary" data-i18n="growth.show_completed_vaccinations">완료한 접종 보기</summary>
+      <div class="vac-list" id="vacDone" style="margin-top:.5rem;"></div>
+    </details>
+  </div>
+
+  <!-- ── 성장 기록 (프로필 있을 때만) ─────── -->
+  <div id="growthLogSection" class="section-gap hidden">
+    <div class="section-title" data-i18n-html="growth.growth_records"><span class="st-icon">📈</span>성장 기록</div>
+    <div class="section-desc" data-i18n="growth.record_weight_height_see_trend">몸무게·키를 기록하면 변화 추이를 그래프로 볼 수 있어요. 백분위수까지 자세히 보려면 성장 백분위수 계산기를 이용하세요.</div>
+    <form id="growthForm" class="growth-add-row">
+      <div class="input-group"><label data-i18n="common.date">날짜</label><input type="date" id="grDate"></div>
+      <div class="input-group"><label data-i18n="growth.weight_kg">몸무게(kg)</label><input type="number" step="0.1" id="grWeight" placeholder="예: 8.2" data-i18n-attr="placeholder:growth.e_g_8_2"></div>
+      <div class="input-group"><label data-i18n="growth.height_cm">키(cm)</label><input type="number" step="0.1" id="grHeight" placeholder="예: 68.5" data-i18n-attr="placeholder:growth.e_g_68_5"></div>
+      <div class="input-group full-span"><label data-i18n="growth.note_optional">메모 (선택)</label><input type="text" id="grNote" placeholder="예: 정기검진, 감기 회복 후 등" data-i18n-attr="placeholder:growth.e_g_routine_checkup_after"></div>
+      <button type="submit" class="calc-btn full-span" data-i18n="growth.add_record">기록 추가</button>
+    </form>
+    <div class="chart-wrap"><canvas id="growthChart"></canvas></div>
+    <div class="growth-history" id="growthHistory"></div>
+    <div style="margin-top:.9rem;">
+      <a href="tools/growth-percentile.html" class="bd-cta-btn" data-i18n="growth.view_growth_percentile_details">성장 백분위수 자세히 보기 →</a>
+    </div>
+  </div>
+
+  <div class="disclaimer" data-i18n="growth.all_information_this_page_child">
+    이 페이지의 모든 정보(아이 정보, 성장 기록, 예방접종 체크, 방문 기록)는 서버로 전송되지 않고 이 브라우저에만 저장됩니다.
+    브라우저 저장공간을 지우거나 다른 기기·브라우저로 접속하면 데이터가 유지되지 않으니 주의하세요.
+    예방접종 일정은 참고용 일반 정보이며, 개별 아동의 건강 상태에 따라 달라질 수 있으므로 반드시 소아청소년과 진료를 통해 확인하시기 바랍니다.
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="assets/js/pages/growth.js"></script>
+<div id="siteFooter" data-footer="site" data-home-label="홈으로" data-i18n-attr="data-home-label:common.back_home"></div>
+</body>
+</html>

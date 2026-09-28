@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://noriya.kr/tools/baby-name.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://noriya.kr/tools/baby-name.html">
+<meta property="og:site_name" content="아이로그" data-i18n-attr="content:common.ailog">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://noriya.kr/assets/img/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="아기 이름 짓기 도우미 — 한자 획수·뜻 이름 추천 | 아이로그" data-i18n-attr="content:baby-name.baby_name_helper_hanja_strokes">
+<meta name="twitter:description" content="성씨와 원하는 이름 느낌을 선택하면 획수 조건에 맞는 아기 이름 후보를 추천해드려요." data-i18n-attr="content:baby-name.choose_surname_feel_want_we">
+<link rel="preconnect" href="https://script.google.com">
+<link rel="preconnect" href="https://pagead2.googlesyndication.com">
+<title data-i18n="baby-name.baby_name_helper_hanja_strokes">아기 이름 짓기 도우미 — 한자 획수·뜻 이름 추천 | 아이로그</title>
+<meta name="description" content="성씨와 원하는 이름 느낌을 선택하면 획수 조건에 맞는 아기 이름 후보를 추천해드려요." data-i18n-attr="content:baby-name.choose_surname_feel_want_we">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script src="../assets/i18n/i18n.js" data-ns="baby-name"></script>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/core/analytics.js"></script>
+<script src="../assets/js/data/tool-catalog.js" defer></script>
+<script src="../assets/js/components/partials.js" defer></script>
+<script src="../assets/js/components/nav.js" defer></script>
+<script src="../assets/js/data/baby-data.js" defer></script>
+<script src="../assets/js/features/baby.js" defer></script>
+<link rel="stylesheet" href="../assets/css/pages/tools/baby-name.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://noriya.kr/index.html"}, {"@type": "ListItem", "position": 2, "name": "임신 · 행정", "item": "https://noriya.kr/index.html#cat-임신행정"}, {"@type": "ListItem", "position": 3, "name": "아기 이름 짓기 도우미", "item": "https://noriya.kr/tools/baby-name.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "아기 이름 짓기 도우미 — 한자 획수·뜻 이름 추천 | 아이로그", "description": "성씨와 원하는 이름 느낌을 선택하면 획수 조건에 맞는 아기 이름 후보를 추천해드려요.", "url": "https://noriya.kr/tools/baby-name.html", "applicationCategory": "LifestyleApplication", "operatingSystem": "Web", "inLanguage": "ko", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"}}</script>
+</head>
+<body data-root-prefix="../">
+<div id="siteHeader"></div>
+<nav class="breadcrumb" aria-label="breadcrumb">
+  <a href="../index.html" data-i18n="common.home_2">홈</a>
+  <span class="bc-sep">›</span>
+  <a href="../index.html#cat-임신행정" data-i18n="common.pregnancy_admin">임신 · 행정</a>
+  <span class="bc-sep">›</span>
+  <span class="bc-current" aria-current="page" data-i18n="common.baby_name_helper">아기 이름 짓기 도우미</span>
+</nav>
+<div class="tool-hero">
+  <div class="cat-tag" data-i18n="common.pregnancy_admin">임신 · 행정</div>
+  <h1 data-i18n="common.baby_name_helper">아기 이름 짓기 도우미</h1>
+  <p data-i18n-html="baby-name.choose_surname_feel_want_we_2">성씨와 원하는 느낌을 선택하면<br>의미 좋은 이름 후보를 추천해드려요.</p>
+</div>
+<main>
+<!-- 상단 반응형 배너 광고 -->
+<div class="ad-slot ad-top">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+       data-ad-slot="1111111111"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>if(typeof CONFIG!=="undefined"){var _ins=document.currentScript.previousElementSibling;_ins.setAttribute("data-ad-client",CONFIG.ADSENSE_CLIENT);_ins.setAttribute("data-ad-slot",CONFIG.AD_SLOTS.TOP_BANNER);}</script>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+  <div class="card-raised card">
+    <div class="input-row" style="margin-bottom:1rem;">
+      <div class="input-group">
+        <label data-i18n="baby-name.surname_hangul">성씨 (한글)</label>
+        <input type="text" id="surname" placeholder="예: 김" maxlength="2" data-i18n-attr="placeholder:baby-name.e_g_kim">
+      </div>
+      <div class="input-group">
+        <label data-i18n="baby-name.number_name_syllables">이름 글자 수</label>
+        <select id="nameLen">
+          <option value="2" selected data-i18n="baby-name.two_syllables_hong_gil_dong">두 글자 (홍길동)</option>
+          <option value="1" data-i18n="baby-name.one_syllable_hong_gil">한 글자 (홍길)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="gender-row">
+      <button class="pill-btn active" onclick="setGender(this,'both')" data-i18n="baby-name.either">👶 무관</button>
+      <button class="pill-btn" onclick="setGender(this,'boy')" data-i18n="common.boy_2">👦 남아</button>
+      <button class="pill-btn" onclick="setGender(this,'girl')" data-i18n="common.girl_2">👧 여아</button>
+    </div>
+
+    <span class="label" data-i18n="baby-name.feel_want_name_multiple_choice">원하는 이름 느낌 (복수 선택)</span>
+    <div class="vibe-grid" id="vibeGrid"></div>
+
+    <button class="calc-btn" onclick="generate()" style="margin-top:1.25rem;" data-i18n="baby-name.get_name_suggestions">✨ 이름 추천받기</button>
+  </div>
+
+  <div id="results" class="hidden section-gap">
+    <h2 class="block-title" id="resultTitle"></h2>
+    <div id="nameList"></div>
+    <button class="calc-btn" onclick="generate()" style="background:var(--surface);color:var(--text);margin-top:.75rem;" data-i18n="baby-name.see_more_names">🔄 다른 이름 더 보기</button>
+  </div>
+
+  <div class="section-gap card">
+    <h2 class="block-title" data-i18n="baby-name.2026_popular_baby_names_top">2026 인기 아기 이름 TOP 10</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+      <div><strong style="font-size:12px;color:var(--text-muted);" data-i18n="common.boy_2">👦 남아</strong>
+        <ol style="padding-left:1.2rem;font-size:13px;line-height:2;color:var(--text);">
+          <li data-i18n-html="baby-name.siwoo_1">시우 <span class="pop-badge">1위</span></li><li data-i18n="baby-name.hajun">하준</li><li data-i18n="baby-name.doyun">도윤</li><li data-i18n="baby-name.jiho">지호</li><li data-i18n="baby-name.junseo">준서</li>
+          <li data-i18n="baby-name.yujun">유준</li><li data-i18n="baby-name.seojun">서준</li><li data-i18n="baby-name.juwon">주원</li><li data-i18n="baby-name.jihu">지후</li><li data-i18n="baby-name.sihyeon">시현</li>
+        </ol>
+      </div>
+      <div><strong style="font-size:12px;color:var(--text-muted);" data-i18n="common.girl_2">👧 여아</strong>
+        <ol style="padding-left:1.2rem;font-size:13px;line-height:2;color:var(--text);">
+          <li data-i18n-html="baby-name.seoyeon_1">서연 <span class="pop-badge">1위</span></li><li data-i18n="baby-name.seoa">서아</li><li data-i18n="baby-name.haeun">하은</li><li data-i18n="baby-name.jia">지아</li><li data-i18n="baby-name.jiyu">지유</li>
+          <li data-i18n="baby-name.chaewon">채원</li><li data-i18n="baby-name.sua">수아</li><li data-i18n="baby-name.daeun">다은</li><li data-i18n="baby-name.naeun">나은</li><li data-i18n="baby-name.yerin">예린</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- 결과 영역 내 광고 -->
+<div class="ad-slot ad-result">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+       data-ad-slot="4444444444"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>if(typeof CONFIG!=="undefined"){var _ins=document.currentScript.previousElementSibling;_ins.setAttribute("data-ad-client",CONFIG.ADSENSE_CLIENT);_ins.setAttribute("data-ad-slot",CONFIG.AD_SLOTS.IN_RESULT);}</script>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+<div class="disclaimer section-gap" data-i18n="baby-name.name_suggestions_based_common_hanja">
+    이름 추천은 일반적인 한자 의미와 발음을 기반으로 하며, 사주·작명 전문가의 감정을 대체하지 않습니다.
+  </div>
+<!-- 푸터 위 광고 배너 -->
+<div class="ad-slot ad-footer">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+       data-ad-slot="5555555555"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>if(typeof CONFIG!=="undefined"){var _ins=document.currentScript.previousElementSibling;_ins.setAttribute("data-ad-client",CONFIG.ADSENSE_CLIENT);_ins.setAttribute("data-ad-slot",CONFIG.AD_SLOTS.FOOTER);}</script>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+</main>
+<div id="siteFooter" data-footer="tool"></div>
+<script src="../assets/js/pages/tools/baby-name.js"></script>
+</body></html>

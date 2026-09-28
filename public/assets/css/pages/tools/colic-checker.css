@@ -1,0 +1,11 @@
+/* 페이지 전용 스타일 — tools/colic-checker.html (공통 토큰/컴포넌트는 assets/css/style.css) */
+.check-list{list-style:none;padding:0;}
+.check-list li{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--gray-100);font-size:14px;}
+.check-list li:last-child{border-bottom:none;}
+.check-list input[type=checkbox]{width:18px;height:18px;margin-top:2px;accent-color:var(--primary);flex-shrink:0;cursor:pointer;}
+.score-box{text-align:center;padding:1.5rem;background:var(--primary-light);border-radius:var(--radius);margin-top:1rem;}
+.score-num{font-size:3rem;font-weight:900;color:var(--primary-dark);}
+.score-label{font-size:14px;color:var(--primary-dark);font-weight:600;margin-top:4px;}
+.method-card{background:var(--surface);border-radius:var(--radius-sm);padding:1rem 1.1rem;margin-bottom:10px;}
+.method-card h3{font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px;display:flex;align-items:center;gap:6px;}
+.method-card p{font-size:13px;color:var(--text-muted);line-height:1.6;}

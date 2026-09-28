@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://noriya.kr/tools/__SLUG__.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://noriya.kr/tools/__SLUG__.html">
+<meta property="og:site_name" content="아이로그" data-i18n-attr="content:common.ailog">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://noriya.kr/assets/img/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="__META_TITLE__" data-i18n-attr="content:__SLUG__.meta_title">
+<meta name="twitter:description" content="__DESC__" data-i18n-attr="content:__SLUG__.meta_description">
+<link rel="preconnect" href="https://script.google.com">
+<link rel="preconnect" href="https://pagead2.googlesyndication.com">
+<title data-i18n="__SLUG__.meta_title">__META_TITLE__</title>
+<meta name="description" content="__DESC__" data-i18n-attr="content:__SLUG__.meta_description">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script src="../assets/i18n/i18n.js" data-ns="__SLUG__"></script>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/core/analytics.js"></script>
+<script src="../assets/js/data/tool-catalog.js" defer></script>
+<script src="../assets/js/components/partials.js" defer></script>
+<script src="../assets/js/components/nav.js" defer></script>
+<script src="../assets/js/data/baby-data.js" defer></script>
+<script src="../assets/js/features/baby.js" defer></script>
+<link rel="stylesheet" href="../assets/css/pages/tools/__SLUG__.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://noriya.kr/index.html"}, {"@type": "ListItem", "position": 2, "name": "__CAT_NAME__", "item": "https://noriya.kr/index.html#cat-__CAT_ID__"}, {"@type": "ListItem", "position": 3, "name": "__TITLE__", "item": "https://noriya.kr/tools/__SLUG__.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "__META_TITLE__", "description": "__DESC__", "url": "https://noriya.kr/tools/__SLUG__.html", "applicationCategory": "LifestyleApplication", "operatingSystem": "Web", "inLanguage": "ko", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"}}</script>
+</head>
+<body data-root-prefix="../">
+<div id="siteHeader"></div>
+
+<nav class="breadcrumb" aria-label="breadcrumb">
+  <a href="../index.html" data-i18n="common.home_2">홈</a>
+  <span class="bc-sep">›</span>
+  <a href="../index.html#cat-__CAT_ID__" data-i18n="__CAT_KEY__">__CAT_NAME__</a>
+  <span class="bc-sep">›</span>
+  <span class="bc-current" aria-current="page" data-i18n="common.__NAME_KEY__">__TITLE__</span>
+</nav>
+<div class="tool-hero">
+  <div class="cat-tag" data-i18n="__CAT_KEY__">__CAT_NAME__</div>
+  <h1 data-i18n="common.__NAME_KEY__">__TITLE__</h1>
+  <p data-i18n="__SLUG__.intro">__INTRO__</p>
+</div>
+
+<main>
+<!-- 상단 반응형 배너 광고 -->
+<div class="ad-slot ad-top">
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX" data-ad-slot="1111111111" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>if(typeof CONFIG!=="undefined"){var _ins=document.currentScript.previousElementSibling;_ins.setAttribute("data-ad-client",CONFIG.ADSENSE_CLIENT);_ins.setAttribute("data-ad-slot",CONFIG.AD_SLOTS.TOP_BANNER);}</script>
+  <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+
+  <!-- ▼ 입력 카드 : 아래는 예시입니다. 도구에 맞게 바꾸세요.
+       (아이 정보 자동 입력을 쓰려면 id 규칙을 맞추세요: birthDate / ageMonth / monthSel / monthBtns / genderSel — README 참고) -->
+  <div class="card-raised card section-gap">
+    <span class="label" data-i18n="__SLUG__.input_label">__INPUT_LABEL__</span>
+    <input type="number" id="valueInput" placeholder="0" data-i18n-attr="placeholder:__SLUG__.input_placeholder">
+    <button class="calc-btn" onclick="calculate()" data-i18n="__SLUG__.calc_button">__CALC_BUTTON__</button>
+  </div>
+
+  <div id="results" class="hidden section-gap">
+    <h2 class="block-title" data-i18n="__SLUG__.result_title">__RESULT_TITLE__</h2>
+    <div class="result-box" id="resultText"></div>
+  </div>
+
+<!-- 결과 영역 내 광고 -->
+<div class="ad-slot ad-result">
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX" data-ad-slot="4444444444" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>if(typeof CONFIG!=="undefined"){var _ins=document.currentScript.previousElementSibling;_ins.setAttribute("data-ad-client",CONFIG.ADSENSE_CLIENT);_ins.setAttribute("data-ad-slot",CONFIG.AD_SLOTS.IN_RESULT);}</script>
+  <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+<div class="disclaimer section-gap" data-i18n="__SLUG__.disclaimer">__DISCLAIMER__</div>
+<!-- 푸터 위 광고 배너 -->
+<div class="ad-slot ad-footer">
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX" data-ad-slot="5555555555" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>if(typeof CONFIG!=="undefined"){var _ins=document.currentScript.previousElementSibling;_ins.setAttribute("data-ad-client",CONFIG.ADSENSE_CLIENT);_ins.setAttribute("data-ad-slot",CONFIG.AD_SLOTS.FOOTER);}</script>
+  <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+</main>
+<div id="siteFooter" data-footer="tool"></div>
+
+<script src="../assets/js/pages/tools/__SLUG__.js"></script>
+</body></html>

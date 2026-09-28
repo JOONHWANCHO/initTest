@@ -1,0 +1,15 @@
+/* 페이지 전용 스타일 — tools/milestone-checker.html (공통 토큰/컴포넌트는 assets/css/style.css) */
+.milestone-group{margin-bottom:1.25rem;}
+.mg-header{display:flex;align-items:center;gap:8px;margin-bottom:.6rem;}
+.mg-icon{font-size:18px;}
+.mg-title{font-size:14px;font-weight:700;color:var(--text);}
+.mg-count{margin-left:auto;font-size:12px;color:var(--text-muted);}
+.check-item{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid var(--gray-100);cursor:pointer;user-select:none;}
+.check-item:last-child{border-bottom:none;}
+.check-item input[type=checkbox]{width:18px;height:18px;margin-top:1px;accent-color:var(--primary);flex-shrink:0;cursor:pointer;}
+.check-item label{font-size:13px;color:var(--text);line-height:1.5;cursor:pointer;}
+.check-item.checked label{color:var(--text-muted);text-decoration:line-through;}
+.progress-bar-outer{background:var(--gray-100);border-radius:99px;height:8px;margin:1rem 0 .25rem;}
+.progress-bar-inner{height:100%;border-radius:99px;background:var(--primary);transition:width .4s ease;}
+.progress-text{font-size:12px;color:var(--text-muted);text-align:right;}
+.concern-box{background:var(--red-light);border:1px solid var(--red-mid);border-radius:var(--radius-sm);padding:.875rem 1rem;margin-top:1rem;font-size:13px;color:#7a1010;line-height:1.65;display:none;}

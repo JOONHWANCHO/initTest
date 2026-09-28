@@ -1,0 +1,23 @@
+/* 페이지 전용 스타일 — tools/feeding-tracker.html (공통 토큰/컴포넌트는 assets/css/style.css) */
+.timer-display{text-align:center;padding:2rem 1rem;background:var(--surface);border-radius:var(--radius);margin-top:1rem;}
+.timer-clock{font-size:3rem;font-weight:900;color:var(--primary-dark);font-variant-numeric:tabular-nums;letter-spacing:.05em;}
+.timer-status{font-size:13px;color:var(--text-muted);margin-top:.25rem;}
+.timer-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:1rem;}
+.timer-btn{padding:14px;border:none;border-radius:var(--radius-sm);font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:.15s;}
+.btn-start{background:var(--primary);color:#fff;}
+.btn-start:hover{background:var(--primary-dark);}
+.btn-stop{background:var(--gray-100);color:var(--text);}
+.btn-stop:hover{background:var(--gray-200);}
+.btn-stop:disabled{opacity:.4;cursor:default;}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:1rem;}
+.stat-card{background:var(--surface);border-radius:var(--radius-sm);padding:.875rem;text-align:center;}
+.stat-card .sv{font-size:1.3rem;font-weight:800;color:var(--primary-dark);}
+.stat-card .sk{font-size:11px;color:var(--text-muted);margin-top:2px;font-weight:600;text-transform:uppercase;}
+.log-table-wrap{overflow-x:auto;margin-top:.5rem;}
+.side-select{display:flex;gap:8px;justify-content:center;margin:1rem 0 .5rem;}
+.side-btn{padding:7px 20px;border-radius:99px;border:1.5px solid var(--gray-200);background:var(--bg);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:.15s;}
+.side-btn.active{border-color:var(--primary);background:var(--primary-light);color:var(--primary-dark);}
+.export-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border:1.5px solid var(--gray-200);border-radius:99px;background:var(--bg);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;color:var(--text);transition:.15s;margin-top:1rem;}
+.export-btn:hover{border-color:var(--primary);color:var(--primary);}
+.delete-btn{background:none;border:none;cursor:pointer;color:var(--gray-400);font-size:14px;padding:2px 6px;border-radius:4px;}
+.delete-btn:hover{color:var(--red);background:var(--red-light);}

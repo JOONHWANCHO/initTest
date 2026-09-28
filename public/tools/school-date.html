@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://noriya.kr/tools/school-date.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://noriya.kr/tools/school-date.html">
+<meta property="og:site_name" content="아이로그" data-i18n-attr="content:common.ailog">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://noriya.kr/assets/img/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="어린이집·유치원·초등학교 입소 날짜 계산기 | 아이로그" data-i18n-attr="content:school-date.daycare_kindergarten_elementary_school">
+<meta name="twitter:description" content="아이 생년월일을 입력하면 어린이집·유치원 입소 가능 날짜와 초등학교 입학 연도를 자동 계산해드려요." data-i18n-attr="content:school-date.enter_child_s_birth_date">
+<link rel="preconnect" href="https://script.google.com">
+<link rel="preconnect" href="https://pagead2.googlesyndication.com">
+<title data-i18n="school-date.daycare_kindergarten_elementary_school">어린이집·유치원·초등학교 입소 날짜 계산기 | 아이로그</title>
+<meta name="description" content="아이 생년월일을 입력하면 어린이집·유치원 입소 가능 날짜와 초등학교 입학 연도를 자동 계산해드려요." data-i18n-attr="content:school-date.enter_child_s_birth_date">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script src="../assets/i18n/i18n.js" data-ns="school-date"></script>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/core/analytics.js"></script>
+<script src="../assets/js/data/tool-catalog.js" defer></script>
+<script src="../assets/js/components/partials.js" defer></script>
+<script src="../assets/js/components/nav.js" defer></script>
+<script src="../assets/js/data/baby-data.js" defer></script>
+<script src="../assets/js/features/baby.js" defer></script>
+<link rel="stylesheet" href="../assets/css/pages/tools/school-date.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://noriya.kr/index.html"}, {"@type": "ListItem", "position": 2, "name": "임신 · 행정", "item": "https://noriya.kr/index.html#cat-임신행정"}, {"@type": "ListItem", "position": 3, "name": "입소·입학 날짜 계산기", "item": "https://noriya.kr/tools/school-date.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "어린이집·유치원·초등학교 입소 날짜 계산기 | 아이로그", "description": "아이 생년월일을 입력하면 어린이집·유치원 입소 가능 날짜와 초등학교 입학 연도를 자동 계산해드려요.", "url": "https://noriya.kr/tools/school-date.html", "applicationCategory": "LifestyleApplication", "operatingSystem": "Web", "inLanguage": "ko", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"}}</script>
+</head>
+<body data-root-prefix="../">
+<div id="siteHeader"></div>
+<nav class="breadcrumb" aria-label="breadcrumb">
+  <a href="../index.html" data-i18n="common.home_2">홈</a>
+  <span class="bc-sep">›</span>
+  <a href="../index.html#cat-임신행정" data-i18n="common.pregnancy_admin">임신 · 행정</a>
+  <span class="bc-sep">›</span>
+  <span class="bc-current" aria-current="page" data-i18n="common.admission_date_calculator">입소·입학 날짜 계산기</span>
+</nav>
+<div class="tool-hero">
+  <div class="cat-tag" data-i18n="common.pregnancy_admin">임신 · 행정</div>
+  <h1 data-i18n="common.admission_date_calculator">입소·입학 날짜 계산기</h1>
+  <p data-i18n-html="school-date.enter_child_s_birth_date_2">생년월일을 입력하면 어린이집·유치원·초등학교<br>입소/입학 가능 날짜를 자동으로 계산해드려요.</p>
+</div>
+<main>
+<!-- 상단 반응형 배너 광고 -->
+<div class="ad-slot ad-top">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+       data-ad-slot="1111111111"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>if(typeof CONFIG!=="undefined"){var _ins=document.currentScript.previousElementSibling;_ins.setAttribute("data-ad-client",CONFIG.ADSENSE_CLIENT);_ins.setAttribute("data-ad-slot",CONFIG.AD_SLOTS.TOP_BANNER);}</script>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+  <div class="card-raised card">
+    <div class="input-group">
+      <label data-i18n="common.child_s_birth_date">아이 생년월일</label>
+      <input type="date" id="birthDate" max="">
+    </div>
+    <button class="calc-btn" onclick="calculate()" data-i18n="school-date.calculate_dates">🎒 날짜 계산하기</button>
+  </div>
+
+  <div id="results" class="hidden section-gap">
+    <div id="currentAge" class="result-box" style="margin-bottom:1rem;"></div>
+
+    <div id="dateCards"></div>
+
+    <div class="section-gap card">
+      <h2 class="block-title" data-i18n="school-date.good_know_admission_info">알아두면 좋은 입소 정보</h2>
+      <table class="data-table">
+        <thead><tr><th data-i18n="common.category">구분</th><th data-i18n="common.when_apply">신청 시기</th><th data-i18n="common.note">비고</th></tr></thead>
+        <tbody>
+          <tr><td data-i18n="school-date.public_national_daycare">국공립 어린이집</td><td data-i18n="school-date.waitlist_applications_open_right_after">출생 직후부터 대기 신청 가능</td><td data-i18n="school-date.can_apply_even_during_pregnancy">임신 중에도 신청 가능, 경쟁률 높음</td></tr>
+          <tr><td data-i18n="school-date.private_home_daycare">민간·가정 어린이집</td><td data-i18n="school-date.2_3_months_before_admission">입소 2~3개월 전</td><td data-i18n="school-date.apply_bokjiro_www_bokjiro_go">복지로(www.bokjiro.go.kr)에서 신청</td></tr>
+          <tr><td data-i18n="school-date.kindergarten">유치원</td><td data-i18n="school-date.lottery_oct_nov_previous_year">전년도 10~11월 추첨</td><td data-i18n="school-date.apply_cheoeum_hakgyo_ro_start">처음학교로(처음학교로.kr)에서 신청</td></tr>
+          <tr><td data-i18n="school-date.elementary_school">초등학교</td><td data-i18n="school-date.nov_dec_previous_year">전년도 11~12월</td><td data-i18n="school-date.school_district_assigned_automatically">거주지 학군 자동 배정</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="warn-box section-gap" data-i18n-html="school-date.waitlist_public_daycare_averages_1">
+      💡 <strong>국공립 어린이집</strong>은 대기 기간이 평균 1~2년이에요. 임신 중이라도 복지로 사이트에서 미리 대기 신청을 해두세요!
+    </div>
+  </div>
+
+  <!-- 결과 영역 내 광고 -->
+<div class="ad-slot ad-result">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+       data-ad-slot="4444444444"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>if(typeof CONFIG!=="undefined"){var _ins=document.currentScript.previousElementSibling;_ins.setAttribute("data-ad-client",CONFIG.ADSENSE_CLIENT);_ins.setAttribute("data-ad-slot",CONFIG.AD_SLOTS.IN_RESULT);}</script>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+<div class="disclaimer section-gap" data-i18n="school-date.admission_eligibility_dates_based_law">
+    입소 가능 날짜는 법령 기준이며, 실제 입소 여부는 정원·지역·운영 방침에 따라 다를 수 있어요. 정확한 정보는 해당 기관에 문의하세요.
+  </div>
+<!-- 푸터 위 광고 배너 -->
+<div class="ad-slot ad-footer">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+       data-ad-slot="5555555555"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>if(typeof CONFIG!=="undefined"){var _ins=document.currentScript.previousElementSibling;_ins.setAttribute("data-ad-client",CONFIG.ADSENSE_CLIENT);_ins.setAttribute("data-ad-slot",CONFIG.AD_SLOTS.FOOTER);}</script>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+</main>
+<div id="siteFooter" data-footer="tool"></div>
+<script src="../assets/js/pages/tools/school-date.js"></script>
+</body></html>

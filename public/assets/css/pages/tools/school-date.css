@@ -1,0 +1,11 @@
+/* 페이지 전용 스타일 — tools/school-date.html (공통 토큰/컴포넌트는 assets/css/style.css) */
+.date-result-card{background:var(--bg);border:1.5px solid var(--gray-100);border-radius:var(--radius);padding:1.25rem;margin-bottom:10px;}
+.date-result-card.highlight{border-color:var(--primary);background:var(--primary-light);}
+.drc-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:4px;}
+.drc-label.green{color:var(--primary-dark);}
+.drc-value{font-size:1.4rem;font-weight:900;color:var(--text);margin-bottom:2px;}
+.drc-sub{font-size:12px;color:var(--text-muted);line-height:1.6;}
+.dday-badge{display:inline-block;padding:3px 12px;border-radius:99px;font-size:12px;font-weight:700;margin-top:6px;}
+.badge-future{background:var(--primary-light);color:var(--primary-dark);}
+.badge-past{background:var(--gray-100);color:var(--gray-500);}
+.badge-now{background:var(--primary);color:#fff;}
